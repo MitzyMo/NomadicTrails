@@ -59,6 +59,9 @@ const NavBar = ({ size }) => {
                 </a>
               </li>
               <li className="nav-item">
+                <link rel="stylesheet" href="../ItemListContainer/ItemListContainer.jsx" />Store
+              </li>
+              <li className="nav-item">
                 <a
                   alt="Contact-me"
                   className="nav-link"
