@@ -1,0 +1,1036 @@
+@charset "UTF-8";
+@import url("https://use.typekit.net/zfl7ylc.css");
+/* ------------GENERAL SCSS------------- */
+*:focus {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*Respetar los padding adicionales*/
+  font-family: "museo-slab", "sans";
+}
+
+/* ------------Smooth Scrolling------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ------------General Data------------- */
+h1,
+h2,
+h3,
+p {
+  font-weight: lighter;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 23px;
+}
+
+p {
+  font-size: 20px;
+}
+
+a {
+  font-weight: lighter;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.body {
+  height: -o-calc(100% - 65px);
+  /* opera */
+  /* google, safari */
+  height: -moz-calc(100% - 65px);
+  /* firefox */
+  background-color: #fafafa;
+  padding-top: 100px;
+  padding-bottom: 20px;
+}
+
+.footer {
+  position: fixed;
+  margin-top: 10px;
+  padding: 20px;
+  letter-spacing: 5px;
+  font-weight: lighter;
+}
+
+.footer i {
+  letter-spacing: 20px;
+  justify-self: center;
+}
+
+.prelative {
+  position: relative;
+}
+
+.section-padding {
+  padding: 50px 0px;
+}
+
+.section-content {
+  margin-top: 80px;
+}
+
+.sectioner-header {
+  width: 69%;
+  margin: 0 auto;
+}
+.sectioner-header a {
+  color: rgb(33, 53, 85);
+}
+.sectioner-header a:hover {
+  color: rgb(79, 112, 156);
+}
+
+.sectioner-header p {
+  font-size: 17px;
+}
+
+.media-right-margin {
+  margin-right: 25px;
+}
+
+/*---- Headers Underline Start ----*/
+.line {
+  height: 2px;
+  width: 50px;
+  background: rgb(187, 191, 202);
+  display: block;
+  margin: 20px auto 20px;
+}
+
+.line::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 150px;
+  height: 2px;
+  border-bottom: 2px dashed #BBBFCA;
+  margin-left: -75px;
+}
+
+/*---- Headers Underline End ----*/
+/* ------------ Index Start ------------- */
+/*---- Navbar Start----*/
+.navbar {
+  box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.049803922);
+  position: fixed;
+  right: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  min-height: 50px;
+  line-height: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 1030;
+}
+
+.navbar .nav-item {
+  margin: 0 5px;
+  padding: 0;
+}
+
+.navbar .nav-item a {
+  color: black;
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-size: 16px;
+}
+
+.navbar .nav-item a:hover {
+  color: rgb(122, 96, 255);
+}
+
+.navbar .nav-link {
+  padding: 0;
+}
+
+.navbar .navbar-toggler {
+  cursor: pointer;
+}
+
+.navbar .navbar-toggler span {
+  color: white;
+}
+
+.navbar-style2 .active:after,
+.navbar-style2 .nav-link:after {
+  display: none;
+}
+
+.logo-1 {
+  height: 50px;
+}
+
+/*---- Navbar End ----*/
+/*---- Banner Start ----*/
+.banner {
+  background: rgb(187, 191, 202);
+  background: linear-gradient(to left, rgb(79, 112, 156) 35%, rgb(33, 53, 85) 46%);
+  padding: 150px 0px;
+  position: relative;
+}
+.banner .banner-content .banner-title {
+  color: white;
+  padding: 10px;
+}
+.banner .banner-content .banner-text {
+  font-size: 20px;
+  padding-right: 80px;
+  margin: 50px 0px 0px;
+  margin: 40px 0px;
+  margin: 25px 0px;
+  color: white;
+}
+.banner .banner-content a {
+  font-size: 20px;
+  color: white;
+  text-shadow: 2px 2px black;
+  transition-duration: 4s;
+  transition-delay: 2s;
+}
+.banner .banner-content a:hover {
+  color: rgb(79, 112, 156);
+}
+
+.banner-img {
+  height: 350px;
+  border-radius: 20px;
+}
+
+.svg-wave .svg-hero {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+/*---- Banner End ----*/
+#about {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("../Media/contactH.webp");
+}
+
+/*---- Travel Tips Background End----*/
+.video-overlay {
+  background: linear-gradient(to left, rgb(79, 112, 156) 35%, rgb(33, 53, 85) 46%);
+}
+
+/*---- Travel Tips Background End ----*/
+/* Media Query for Mobile Devices */
+@media all and (max-width: 480px) {
+  .banner-content {
+    padding-right: 0px;
+    padding-bottom: 20px;
+    margin: 10px 0px 0px;
+  }
+  .banner-content .banner-img {
+    height: 250px;
+  }
+  .brand-size {
+    width: 100%;
+  }
+}
+/*------ Media Query Start -------*/
+@media all and (max-width: 1050px) {
+  .navbar .navbar-collapse {
+    overflow: auto;
+    background: rgba(187, 191, 202, 0.98);
+    color: white !important;
+    text-align: center;
+    padding: 10px 0;
+  }
+  #contact_form {
+    margin-bottom: 20px;
+  }
+}
+@media all and (max-width: 768px) {
+  .banner-content {
+    padding-right: 0px;
+    padding-bottom: 20px;
+    margin: 10px 0px 0px;
+  }
+  #contact_form {
+    margin-bottom: 20px;
+  }
+  .contact-item {
+    font-size: 12px;
+  }
+  .brand-size {
+    width: 100%;
+  }
+}
+/* ------------ ABOUT ME SECTION 1 CSS LEFT REUSE FORM PAGES------------- */
+.about-section1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: black;
+}
+.about-section1 .about-contact p {
+  width: 80%;
+}
+.about-section1 .about-content img,
+.about-section1 h1,
+.about-section1 h2,
+.about-section1 p {
+  padding-bottom: 10px;
+}
+.about-section1 .about-content h1 {
+  color: black;
+}
+.about-section1 .about-content a {
+  text-shadow: 2px 2px rgba(79, 112, 156, 0.7);
+  transition: all 0.33s ease-out;
+}
+.about-section1 .about-content a:hover {
+  transform: scale(1.1);
+  color: black;
+}
+.about-section1 .about-text {
+  width: 80%;
+  margin: 0 auto;
+  transition: all 0.33s ease-out;
+}
+.about-section1 .about-text:hover {
+  transform: scale(1.1);
+}
+
+/* Media Query for Mobile Devices */
+@media all and (max-width: 480px) {
+  .about-section1--img {
+    width: 319px;
+  }
+  .about-text {
+    width: 319px;
+  }
+}
+/* ------------ TRAVEL TIPS SECTION 2------------- */
+#travel a {
+  color: white;
+}
+
+#sec2-travel-vid-tip1 {
+  height: 400px;
+  grid-area: vid1;
+}
+
+#sec2-travel-title-tip1 {
+  grid-area: title1;
+}
+
+#sec2-travel-text-tip1 {
+  grid-area: text1;
+}
+
+#sec2-travel-vid-tip2 {
+  height: 400px;
+  grid-area: vid2;
+}
+
+#sec2-travel-title-tip2 {
+  grid-area: title2;
+}
+
+#sec2-travel-text-tip2 {
+  grid-area: text2;
+}
+
+#sec2-travel-vid-tip3 {
+  height: 400px;
+  grid-area: vid3;
+}
+
+#sec2-travel-title-tip3 {
+  grid-area: title3;
+}
+
+#sec2-travel-text-tip3 {
+  grid-area: text3;
+}
+
+.sec2-travel-video {
+  display: grid;
+  margin: 0 auto;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "vid1 vid2 vid3" "title1 title2 title3" "text1 text2 text3";
+}
+
+.sec2-travel-video a {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  justify-self: center;
+}
+
+/* Media Query for Mobile Devices */
+/* Media Query for low resolution  Tablets, Ipads */
+@media all and (max-width: 773px) {
+  #sec2-travel-vid-tip2 {
+    display: none;
+    pointer-events: none;
+  }
+  #sec2-travel-title-tip2 {
+    display: none;
+    pointer-events: none;
+  }
+  #sec2-travel-text-tip2 {
+    display: none;
+    pointer-events: none;
+  }
+  #sec2-travel-vid-tip3 {
+    display: none;
+    pointer-events: none;
+  }
+  #sec2-travel-title-tip3 {
+    display: none;
+    pointer-events: none;
+  }
+  #sec2-travel-text-tip3 {
+    display: none;
+    pointer-events: none;
+  }
+  .sec2-travel-video {
+    display: grid;
+    margin: 0 auto;
+    grid-gap: 10px;
+    grid-template-columns: 100%;
+    grid-template-areas: "vid1" "title1" "text1";
+    height: 655px;
+  }
+}
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 774px) and (max-width: 938px) {
+  #sec2-travel-vid-tip3 {
+    display: none;
+    pointer-events: none;
+  }
+  #sec2-travel-title-tip3 {
+    display: none;
+    pointer-events: none;
+  }
+  #sec2-travel-text-tip3 {
+    display: none;
+    pointer-events: none;
+  }
+  .sec2-travel-video {
+    width: 100vh;
+    display: grid;
+    margin: 0 auto;
+    grid-gap: 10px;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "vid1 vid2" "title1 title2" "text1 text2";
+    height: 655px;
+  }
+}
+/* ------------ GALLERY SECTION 3------------- */
+/* ----- BS Carrousel Media Queries ----- */
+.d-flex {
+  height: 53rem;
+}
+
+/* Media Query for Mobile Devices */
+@media all and (max-width: 480px) {
+  .d-flex {
+    height: 20rem;
+  }
+  .d-flex .carousel-img {
+    width: 95%;
+  }
+}
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+  .d-flex {
+    height: 23rem;
+  }
+  .d-flex .carousel-img {
+    width: 95%;
+  }
+}
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .d-flex {
+    height: 27rem;
+  }
+}
+/* Media Query for Laptops and Desktops */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .d-flex {
+    height: 32rem;
+  }
+}
+/* Media Query for Large screens */
+@media (min-width: 1281px) {
+  .d-flex {
+    height: 37rem;
+  }
+}
+/* ------------ CONTACT ME SECTION 4 CSS FOR INDEX REUSED FROM THE PAGES CSS------------- */
+.contact a {
+  color: white;
+}
+
+/* ------------ Index End ------------- */
+/* ------------ PAGES CSS ------------- */
+/* -------------CONTACT ME REUSE FOR INDEX VIEW------------- */
+/*Body*/
+.contact {
+  background: rgb(187, 191, 202);
+  background: linear-gradient(to left, rgb(79, 112, 156) 35%, rgb(33, 53, 85) 46%);
+  padding: 100px 0px;
+  position: relative;
+}
+.contact h2 {
+  color: white;
+}
+.contact p {
+  color: white;
+}
+.contact .contact-item {
+  margin: 23px 0px;
+  font-size: 16px;
+}
+.contact .contact-item i {
+  font-size: 20px;
+}
+.contact .contact-item p {
+  line-height: 20px;
+  margin: 0;
+}
+
+#contact_form {
+  margin-bottom: 20px;
+}
+
+#contact_form .form-input {
+  border: 1px solid #e4e4e4;
+}
+
+input {
+  height: 42px;
+  padding: 0 1rem;
+  background: #fff;
+  border-radius: 30px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease-in-out;
+  border: 0;
+}
+
+#contact_form textarea {
+  resize: none;
+  padding: 1rem;
+  height: 150px;
+  background: white;
+  border: 0;
+  border-radius: 30px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-grad {
+  transform: translate(0%, 0%);
+  padding: 0.7rem 2rem;
+  display: inline-block;
+  color: white;
+  border-radius: 2rem;
+  border: 0;
+  background: linear-gradient(to left, rgb(122, 96, 255), rgb(205, 159, 250));
+  cursor: pointer;
+}
+
+.wrapper button span {
+  position: relative;
+  z-index: 2;
+}
+
+.wrapper button:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border-radius: 2rem;
+  background: linear-gradient(to left, rgb(40, 60, 134), rgb(69, 162, 71));
+  transition: all 0.35s;
+}
+
+.wrapper button:hover {
+  color: rgb(33, 53, 85);
+}
+
+.wrapper button:active:after {
+  width: 100%;
+}
+
+.contact-info {
+  padding: 2rem 2rem 1rem;
+  border-radius: 8px;
+  background: rgb(122, 96, 255);
+  background: linear-gradient(to left, rgb(122, 96, 255), rgb(205, 159, 250));
+}
+
+.contact-item {
+  margin: 23px 0px;
+}
+
+.contact-item i {
+  font-size: 20px;
+}
+
+.contact-item p {
+  line-height: 20px;
+  margin: 0;
+}
+
+/*------ Animation start------*/
+/*------ Animation End------*/
+/* -------------TRAVEL BLOG------------- */
+/* card effect for articles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* -------------ABOUT ME------------- */
+.about-section {
+  margin: 0 auto;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 99%;
+}
+.about-section h3 {
+  font-size: 2em;
+}
+.about-section p {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#hero .profile-img {
+  width: 300px;
+  border-radius: 50%;
+}
+
+#hero h1 {
+  font-size: 3em;
+}
+
+.results {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.section-inner {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.section-inner2 {
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.about-data {
+  font-size: 30px;
+  color: #347f38;
+  font-weight: 700;
+}
+
+.about-label {
+  font-size: 20px;
+}
+
+.about-contact a {
+  margin: 40px;
+  text-decoration: none;
+  color: rgb(33, 53, 85);
+}
+
+.about-contact a:hover {
+  color: rgb(79, 112, 156);
+}
+
+#hero {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("../Media/contactH.webp");
+}
+
+/* -------------GALLERY------------- */
+#gallery {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("../Media/contactH.webp");
+}
+
+.galeria {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 200px);
+  padding: 20px;
+  grid-gap: 15px;
+}
+
+.carousel-control-prev-icon .active {
+  color: #347f38;
+}
+
+.item {
+  background-size: cover;
+  background-position: center;
+  border: 4px solid #000;
+  transition: all 0.9s;
+  filter: grayscale(100%);
+  box-shadow: 0 0 5px 0px #000;
+}
+
+.item:hover {
+  filter: grayscale(0%);
+  transform: scale3d(1.1, 1.1, 1.1);
+}
+
+.item1 {
+  background-image: url(../Media/zen.webp);
+}
+
+.item2 {
+  background-image: url(../Media/People.webp);
+}
+
+.item3 {
+  background-image: url(../Media/Water.webp);
+}
+
+.item4 {
+  background-image: url(../Media/fade.webp);
+}
+
+.item5 {
+  background-image: url(../Media/graffiti.webp);
+}
+
+.item6 {
+  background-image: url(../Media/Rest.webp);
+}
+
+.item7 {
+  background-image: url(../Media/monument.webp);
+}
+
+.item8 {
+  background-image: url(../Media/Deck.webp);
+}
+
+.item9 {
+  background-image: url(../Media/MedCenter.webp);
+}
+
+.item10 {
+  background-image: url(../Media/MedMuseam.webp);
+}
+
+.item11 {
+  background-image: url(../Media/Flower.webp);
+}
+
+.item12 {
+  background-image: url(../Media/Poet.webp);
+}
+
+.item13 {
+  background-image: url(../Media/contactH.webp);
+}
+
+.item14 {
+  background-image: url(../Media/Centro.webp);
+}
+
+.item15 {
+  background-image: url(../Media/Bill.webp);
+}
+
+.item16 {
+  background-image: url(../Media/Monserrat.webp);
+  background-position: left;
+}
+
+.item17 {
+  background-image: url(../Media/Bird.webp);
+  background-position: left;
+}
+
+.item18 {
+  background-image: url(../Media/Ishira.webp);
+}
+
+.container {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+/* inician las media queries */
+/* Media Query for Mobile Devices */
+@media all and (max-width: 480px) {
+  .galeria {
+    /* grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, $lg1); */
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(18, 200px);
+  }
+  .nosotros {
+    display: flex;
+  }
+  .nleft {
+    width: 50%;
+  }
+  .nright {
+    width: 50%;
+  }
+  .item2 {
+    background-size: contain;
+  }
+}
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+  .galeria {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 200px);
+  }
+}
+/* Media Query for Tablets Ipads portrait mode */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(9, 200px);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .galeria {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(21, 7rem);
+  }
+  /* First COlumn */
+  .item1 {
+    /* Piedras */
+    grid-column: 1/2;
+    grid-row: 1/7;
+  }
+  .item5 {
+    /* Graffiti */
+    grid-column: 1/2;
+    grid-row: 7/9;
+  }
+  .item7 {
+    /* Monument */
+    grid-column: 1/2;
+    grid-row: 9/12;
+  }
+  .item9 {
+    /* Medellin center */
+    grid-column: 1/2;
+    grid-row: 12/16;
+  }
+  .item17 {
+    /* Bird */
+    grid-column: 1/2;
+    grid-row: 16/20;
+  }
+  .item16 {
+    /* Monserrat */
+    grid-column: 1/2;
+    grid-row: 20/24;
+  }
+  .item4 {
+    /* Fade */
+    grid-column: 1/2;
+    grid-row: 24/44;
+  }
+  /* Second Column */
+  .item2 {
+    /* People */
+    grid-column: 2/3;
+    grid-row: 1/7;
+  }
+  .item12 {
+    /* Poet */
+    grid-column: 2/3;
+    grid-row: 7/14;
+  }
+  .item18 {
+    /* Ishira */
+    grid-column: 2/3;
+    grid-row: 14/21;
+  }
+  .item14 {
+    /* Bogotá Center */
+    grid-column: 2/3;
+    grid-row: 21/44;
+  }
+  /*------- Third Column -------*/
+  .item3 {
+    /* Water */
+    grid-column: 3/4;
+    grid-row: 1/7;
+  }
+  .item6 {
+    /* Restaurant */
+    grid-column: 3/4;
+    grid-row: 7/9;
+  }
+  .item8 {
+    /* Deck */
+    grid-column: 3/4;
+    grid-row: 9/12;
+  }
+  .item10 {
+    /* Museum */
+    grid-column: 3/4;
+    grid-row: 12/16;
+  }
+  .item13 {
+    /* Blue Pond */
+    grid-column: 3/4;
+    grid-row: 16/20;
+  }
+  .item15 {
+    /* Bill */
+    grid-column: 3/4;
+    grid-row: 20/24;
+  }
+  .item11 {
+    /* Flower */
+    grid-column: 3/4;
+    grid-row: 24/44;
+  }
+}
+/* ------------ BACKUP BUTTON ------------*/
+.up {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background-color: #495464;
+  opacity: 0.8;
+  color: white;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 30px;
+  box-shadow: 0 0 5px white;
+  transition: all 200ms ease-in-out;
+}
+
+.up:hover {
+  color: #352F44;
+}
+
+/*Adding clases per color and background to use directly in html*/
+/* Text Colors - Light to Dark */
+.white {
+  color: white;
+}
+
+.white-subtle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.lavander-mist {
+  color: rgb(205, 159, 250);
+}
+
+.slate-gray-light {
+  color: rgba(187, 191, 202, 0.98);
+}
+
+.slate-gray {
+  color: rgb(187, 191, 202);
+}
+
+.steel-gray {
+  color: rgb(73, 84, 100);
+}
+
+.blue-steel {
+  color: rgb(79, 112, 156);
+}
+
+.blue-deep {
+  color: rgb(33, 53, 85);
+}
+
+.electric-violet {
+  color: rgb(122, 96, 255);
+}
+
+.royal-blue {
+  color: rgb(40, 60, 134);
+}
+
+.forest-green {
+  color: rgb(69, 162, 71);
+}
+
+.black {
+  color: black;
+}
+
+/* Background Colors - Light to Dark */
+.ivory-cream {
+  background-color: rgb(252, 248, 236);
+}
+
+.sky-blue {
+  background-color: rgb(208, 232, 242);
+}
+
+.slate-blue {
+  background-color: rgb(121, 163, 177);
+}
+
+.deep-teal-blue {
+  background-color: rgb(55, 66, 89);
+}
+
+.icon-spacing {
+  padding-right: 10px;
+}
+
+.mt-100 {
+  margin-top: 100px;
+}/*# sourceMappingURL=styles.css.map */
