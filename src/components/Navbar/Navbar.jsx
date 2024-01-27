@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import "../../assets/styles/styles.css";
+import { Link } from "react-router-dom";
+import Logo from "../Brand/Logo";
 
 const NavBar = ({ size }) => {
   return (
     <>
     <nav className="navbar navbar-expand-xl sticky-top">
         <div className="container-fluid">
-          <a className="navbar-brand" alt="Landing-Page" href="#">
-            <img
-              src="../../assets/media/Logo.webp"
-              alt="logo"
-              loading="lazy"
-            />
-          </a>
+          <Link className="navbar-brand" alt="Landing-Page" to={"/"}>
+          <Logo size={40} alt="Mo's Logo" />
+          </Link>
           <button
             aria-label="Menu"
             className="navbar-toggler"
@@ -27,48 +25,48 @@ const NavBar = ({ size }) => {
           <div className="collapse navbar-collapse" id="collapsibleNavbar">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a alt="Landing-Page" className="nav-link" href="./index.html">
+                <Link alt="Landing-Page" className="nav-link" href="./index.html">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   alt="About-me"
                   className="nav-link"
                   href="./Pages/About.html"
                 >
                   About me
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   alt="Travel-tips"
                   className="nav-link"
                   href="./Pages/travel.html"
                 >
                   Travel Tips
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   alt="Gallery"
                   className="nav-link"
                   href="./Pages/gallery.html"
                 >
                   Gallery
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <link rel="stylesheet" href="../ItemListContainer/ItemListContainer.jsx" />Store
+                <Link rel="stylesheet" href="../ItemListContainer/ItemListContainer.jsx">Store</Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   alt="Contact-me"
                   className="nav-link"
                   href="./Pages/contact.html"
                 >
                   Contact me
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

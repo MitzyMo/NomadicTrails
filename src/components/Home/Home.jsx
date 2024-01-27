@@ -1,48 +1,10 @@
 import React from "react";
+import BrandName from "../Brand/BrandName";
 
 const Home = () => {
     return (
         <>
-        <section className="banner" id="home">
-            <div className="banner-overlay">
-            <div className="container">
-                <div className="row">
-                <div className="col-md-8 col-sm-12 banner-content">
-                    <h2 className="banner-title">Hi! I'm Mo the Traveler</h2>
-                    <p className="banner-text">
-                    Meet Mo, your friendly globetrotting companion, and join her
-                    on an exciting journey around the world. Mo is not just any
-                    traveler; she's a storyteller, adventurer, and explorer rolled
-                    into one. In this captivating adventure, Mo will take you on a
-                    voyage filled with intriguing tales, breathtaking landscapes,
-                    and cultural encounters that will leave you inspired and
-                    yearning for your own adventures.
-                    </p>
-                    <a alt="About-me" href="./Pages/About.html">
-                    MY STORY
-                    </a>
-                </div>
-                <div className="col-md-4 col-sm-12">
-                    <img
-                    alt="Pozos-Azules"
-                    src="../../assets/media/Zen.webp"
-                    className="banner-img"
-                    loading="lazy"
-                    />
-                </div>
-                </div>
-            </div>
-            </div>
-            <span className="svg-wave">
-            <img
-                className="svg-hero"
-                src="../../assets/media/wave.svg"
-                alt="wave"
-                loading="lazy"
-            />
-            </span>
-        </section>
-
+        <BrandName />
         <section
             className="about section-padding prelative about-section1"
             id="about"

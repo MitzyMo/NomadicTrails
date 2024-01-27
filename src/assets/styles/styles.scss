@@ -96,7 +96,7 @@ a {
 }
 
 .footer {
-    position: fixed;
+
     margin-top: $xs1;
     padding: $xs2;
     letter-spacing: 5px;
@@ -215,54 +215,15 @@ a {
 /*---- Navbar End ----*/
 
 /*---- Banner Start ----*/
+
 .banner {
-    background: $slate-gray;
-    background: linear-gradient(to left, $blue-steel 35%, $blue-deep 46%);
-    padding: 150px 0px;
-    position: relative;
-
-    .banner-content {
-        .banner-title {
-            color: $white;
-            padding: $xs1;
-        }
-
-        .banner-text {
-            font-size: $xs2;
-            padding-right: $md1;
-            margin: $sm1 0px 0px;
-            margin: $xs4 0px;
-            margin: 25px 0px;
-            color: $white;
-        }
-
-        a {
-            font-size: $xs2;
-            color: $white;
-            text-shadow: 2px 2px $black;
-            transition-duration: 4s;
-            transition-delay: 2s;
-        }
-        a:hover{
-            color: $blue-steel;
-        }
-    }
+    width: 100%;
+    background-image: url('../../assets/media/BrandCompendium.webp');
+    background-size: cover;
+    padding: 100px 0px;
+    
 }
 
-.banner-img {
-    height: 350px;
-    border-radius: $xs2;
-}
-
-.svg-wave {
-    .svg-hero {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        z-index: 100;
-    }
-
-}
 
 /*---- Banner End ----*/
 
@@ -315,7 +276,6 @@ a {
         padding-bottom: $xs2;
         margin: $xs1 0px 0px;
     }
-
     #contact_form {
         margin-bottom: $xs2;
     }

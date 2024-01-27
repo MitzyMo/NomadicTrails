@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../../assets/styles/styles.css";
 import brand from "../../assets/media/BrandCompendium.webp";
+import Banner from '../Home/Banner';
 
 
 //Componente presentación
@@ -32,7 +33,7 @@ const BrandName = () => {
   return (
     <>
       <div id="Brandbg" className={`mt-100 container-fluid ${currentBackground}`}>
-        <img className='mx-auto d-block brand-size' src={brand} alt="Mo's Nomadic Trails" />
+        <Banner/>
       </div>
     </>
   );
