@@ -25,7 +25,7 @@ function App() {
           <Route path={"/Travel"} element={<Travel />} />
           <Route path={"/Gallery"} element={<Gallery />} />
           <Route path={"/Store"} element={<Store />} />
-          <Route path={"/Store/:idCategory"} element={<ProductCard />} />
+          <Route path="/Store/:category?" element={<Store />} />
           <Route path={"/Contact"} element={<Contact />} />
           <Route path={"*"} element={<ErrorHandler />} />
         </Routes>
