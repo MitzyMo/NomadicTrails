@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import "../../assets/styles/styles.css";
-import brand from "../../assets/media/BrandCompendium.webp";
 import Banner from '../Home/Banner';
 
 
 //Componente presentación
 
 const BrandName = () => {
-  const backgrounds = ['ivory-cream', 'bg-white', 'slate-blue', 'bg-light'];
+  const backgrounds = ['blue-steel', 'deep-teal-blue', 'blue-steelbg'];
   // state name and state modifier
   const [currentBackground, setCurrentBackground] = useState('');
   //Another React Hook
@@ -24,7 +23,7 @@ const BrandName = () => {
     // Change background every 8 seconds
     const intervalId = setInterval(() => {
       setCurrentBackground(getRandomBackground());
-    }, 8000);
+    }, 3000);
 
     // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
@@ -32,9 +31,7 @@ const BrandName = () => {
 
   return (
     <>
-      <div id="Brandbg" className={`mt-100 container-fluid ${currentBackground}`}>
-        <Banner/>
-      </div>
+        <Banner id="Brandbg" className={`mt-75 ${currentBackground}`}/>
     </>
   );
 };

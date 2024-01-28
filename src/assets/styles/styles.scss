@@ -217,11 +217,49 @@ a {
 /*---- Banner Start ----*/
 
 .banner {
-    width: 100%;
-    background-image: url('../../assets/media/BrandCompendium.webp');
-    background-size: cover;
-    padding: 100px 0px;
+    padding: 150px 0px;
+    position: relative;
+
+    .banner-content {
+        .banner-title {
+            color: $white-subtle;
+            padding: $xs1;
+        }
+
+        .banner-text {
+            font-size: $xs2;
+            padding-right: $md1;
+            margin: $sm1 0px 0px;
+            margin: $xs4 0px;
+            margin: 25px 0px;
+            color: $white-subtle;
+        }
+
+        Link {
+            font-size: $xs2;
+            color: $white-subtle;
+            text-shadow: 2px 2px $black;
+            transition-duration: 4s;
+            transition-delay: 2s;
+        }
+        Link:hover{
+            color: $blue-steel;
+        }
+    }
+    .svg-wave {
+        .svg-hero {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            z-index: 100;
+        }
     
+    }
+}
+
+.banner-img {
+    height: 350px;
+    border-radius: $xs2;
 }
 
 
@@ -1113,6 +1151,9 @@ input {
 }
 
   /* Background Colors - Light to Dark */
+  .blue-steelbg {
+    background-color: $blue-steel;
+}
 .ivory-cream {
     background-color: $ivory-cream;
 }

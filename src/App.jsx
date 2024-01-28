@@ -10,6 +10,8 @@ import Travel from "./components/Travel/Travel";
 import Gallery from "./components/Gallery/Gallery";
 import Store from "./components/ItemListContainer/ItemListContainer";
 import Contact from "./components/Contact/Contact";
+import ErrorHandler from "./components/ItemListContainer/ErrorHandler";
+import ProductCard from "./components/ItemListContainer/ProductCard";
 
 function App() {
   return (
@@ -23,7 +25,9 @@ function App() {
           <Route path={"/Travel"} element={<Travel />} />
           <Route path={"/Gallery"} element={<Gallery />} />
           <Route path={"/Store"} element={<Store />} />
+          <Route path={"/Store/:idCategory"} element={<ProductCard />} />
           <Route path={"/Contact"} element={<Contact />} />
+          <Route path={"*"} element={<ErrorHandler />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -177,10 +177,41 @@ a {
 /*---- Navbar End ----*/
 /*---- Banner Start ----*/
 .banner {
+  padding: 150px 0px;
+  position: relative;
+}
+.banner .banner-content .banner-title {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+}
+.banner .banner-content .banner-text {
+  font-size: 20px;
+  padding-right: 80px;
+  margin: 50px 0px 0px;
+  margin: 40px 0px;
+  margin: 25px 0px;
+  color: rgba(255, 255, 255, 0.9);
+}
+.banner .banner-content Link {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 2px 2px black;
+  transition-duration: 4s;
+  transition-delay: 2s;
+}
+.banner .banner-content Link:hover {
+  color: rgb(79, 112, 156);
+}
+.banner .svg-wave .svg-hero {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  background-image: url("../../assets/media/BrandCompendium.webp");
-  background-size: cover;
-  padding: 100px 0px;
+  z-index: 100;
+}
+
+.banner-img {
+  height: 350px;
+  border-radius: 20px;
 }
 
 /*---- Banner End ----*/
@@ -289,7 +320,7 @@ a {
   }
 }
 /* ------------ TRAVEL TIPS SECTION 2------------- */
-#travel a {
+#travel {
   color: white;
 }
 
@@ -976,6 +1007,10 @@ input {
 }
 
 /* Background Colors - Light to Dark */
+.blue-steelbg {
+  background-color: rgb(79, 112, 156);
+}
+
 .ivory-cream {
   background-color: rgb(252, 248, 236);
 }

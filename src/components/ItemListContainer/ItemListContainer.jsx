@@ -1,23 +1,28 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import arrayproducts from "../json/products.json";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Breadcrumb from "./Breadcrumb";
-import { LiaCartPlusSolid } from "react-icons/lia";
+import ProductCard from "./ProductCard";
+import { MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem } from 'mdb-react-ui-kit';
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
     const [errorMsg, setErrorMsg] = useState("");
-    const { id } = useParams(); //Capturar los parámetros de la url
+    const { id } = useParams(); // Capturar los parámetros de la URL
+
+    // Extract unique categories from the products
+    const categories = Array.from(new Set(arrayproducts.map((item) => item.category.name)));
+
 
     useEffect(() => {
         const promesa = new Promise((resolve, reject) => {
         let allProducts = id
-            ? arrayproducts.filter((item) => item.categoria === id)
+            ? arrayproducts.filter((item) => item.category.name === id)
             : arrayproducts;
 
         allProducts.length > 0
             ? resolve(allProducts)
-            : reject("No se encontraron produtos!");
+            : reject("No se encontraron productos!");
         });
 
         promesa
@@ -29,6 +34,11 @@ const ItemListContainer = () => {
         });
     }, [id]);
 
+    const handleFilterChange = (selectedCategory) => {
+        const filteredProducts = arrayproducts.filter((item) => item.category.name === selectedCategory);
+        setProducts(filteredProducts);
+    };
+
     return (
         <>
         <div className="container mt-100">
@@ -37,29 +47,30 @@ const ItemListContainer = () => {
                 <Breadcrumb pageId={id} />
             </div>
             </div>
-            <div className="row"> {products.map((item) => (<div key={item.id} className="col-md-3">
-                <div className="card border-0 text-center">
-                    <img
-                    src={item.images}
-                    className="card-img-top"
-                    alt={item.title} style={{objectFit:'contain'}}
-                    />
-                    <div className="card-body">
-                    <h5 className="card-title">{item.title}</h5>
-                    <p className="card-text">
-                        ${item.price}
-                    </p>
-                    <Link to="" className="btn btn-primary">
-                        ADD TO CART <LiaCartPlusSolid size={24}/>
-                    </Link>
-                    </div>
-                </div>
-                </div>
+            <div className="row mb-3">
+            <div className="col">
+                <MDBDropdown onSelect={handleFilterChange}>
+                <MDBDropdownToggle variant="info" id="dropdown-basic">
+                    Filter by Category
+                </MDBDropdownToggle>
+                <MDBDropdownMenu>
+                    {categories.map((category) => (
+                    <MDBDropdownItem className="m-2 text-center pe-auto" style={{pointer: 'cursor'}} key={category} eventkey={category} onSelect={() => handleFilterChange(category)} link>
+                    {category}
+                </MDBDropdownItem>
+                    ))}
+                </MDBDropdownMenu>
+                </MDBDropdown>
+            </div>
+            </div>
+            <div className="row">
+            {products.map((item) => (
+                <ProductCard key={item.id} item={item} />
             ))}
             </div>
             <div className="row">
             <div className="col">
-            <h1 className="text-center text-danger">{errorMsg}</h1> 
+                <h1 className="text-center text-danger">{errorMsg}</h1>
             </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../assets/styles/styles.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../Brand/Logo";
 
 const NavBar = ({ size }) => {
@@ -25,37 +25,37 @@ const NavBar = ({ size }) => {
           <div className="collapse navbar-collapse" id="collapsibleNavbar">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link alt="Landing-Page" className="nav-link" to={"/"}>
+                <NavLink alt="Landing-Page" className="nav-link" to={"/"}>
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link alt="About-me" className="nav-link" to={"/About"}>
+                <NavLink alt="About-me" className="nav-link" to={"/About"}>
                   About me
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link alt="Travel-tips" className="nav-link" to={"/Travel"}>
+                <NavLink alt="Travel-tips" className="nav-link" to={"/Travel"}>
                   Travel Tips
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link alt="Gallery" className="nav-link" to={"/Gallery"}>
+                <NavLink alt="Gallery" className="nav-link" to={"/Gallery"}>
                   Gallery
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link
+                <NavLink
                   rel="stylesheet"
                   to={"/Store"}
                 >
                   Store
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link alt="Contact-me" className="nav-link" to={"/Contact"}>
+                <NavLink alt="Contact-me" className="nav-link" to={"/Contact"}>
                   Contact me
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>
