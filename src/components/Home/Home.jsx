@@ -2,35 +2,35 @@ import React from "react";
 import BrandName from "../Brand/BrandName";
 import { Link } from "react-router-dom";
 import "../../assets/styles/styles.css";
-import PragueVideo from "../../assets/media/PragueTrol.webp"
+import trollPrague from "../../assets/media/PragueC.webp";
+import venice from "../../assets/media/Venice.webp";
+import Florence from "../../assets/media/Florence.webp";
+import { MDBCarousel, MDBCarouselItem  } from "mdb-react-ui-kit";
+import Bird from "../../assets/media/Bird.webp";
+import Deck from "../../assets/media/Deck.webp";
+import Contact from "../../assets/media/Contact.webp";
+import Monserrat from "../../assets/media/Monserrat.webp";
+import Logo from "../Brand/Logo";
 
 const Home = () => {
   return (
     <>
       <BrandName />
-      <section
-        className="about section-padding prelative about-section1"
-        id="about"
-      >
+      <section className="about section-padding prelative about-section1" id="about">
         <div>
           <div className="sectioner-header text-center">
             <h2>
-              <Link alt="About-me" href="./Pages/About.html">
+              <Link alt="About-me" to={"/About"}>
                 About Me
               </Link>
             </h2>
             <span className="line"></span>
           </div>
           <div className="about-content">
-            <img
-              loading="lazy"
-              alt="Mercy's-memoji"
-              src="../../assets/media/Mercy.webp"
-              className="profile-img about-section1--img"
-            />
+            <Logo size={300}/>
             <h1>Hi, I'm Mo the Traveler.</h1>
             <h2>
-              <Link alt="About-me" href="./Pages/About.html">
+              <Link alt="About-me" to={"/About"}>
                 My Story
               </Link>
             </h2>
@@ -41,8 +41,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/*VIDEOS AQUÍ */}
-      <section className="travel prelative text-center" id="tips">
+      {/*VIDEOS */}
+      <section className="prelative text-center" id="tips">
         <div className="section-padding video-overlay">
           <div className="sectioner-header text-center">
             <h2 id="travel">
@@ -53,293 +53,142 @@ const Home = () => {
             <span className="line"></span>
           </div>
           <div className="container pt-2">
-                <div className="row">
-                <div className="card bg-transparent " style={{ width: "18rem" }}>
-            <video className="w-100" autoPlay loop muted src={PragueVideo}/>
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <Link to={"/Travel"} className="btn btn-primary">
-                Go somewhere
-              </Link>
-            </div>
-          </div>
-          <div className="card bg-transparent " style={{ width: "18rem" }}>
-            <video className="w-100" autoPlay loop muted>
-              <source
-                src="https://mdbootstrap.com/img/video/animation-intro.mp4"
-                type="video/mp4"
-                allowFullScreen
-              />
-            </video>
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <Link to={"/Travel"} className="btn btn-primary">
-                Go somewhere
-              </Link>
-            </div>
-          </div>
-          <div className="card bg-transparent " style={{ width: "18rem" }}>
-            <video className="w-100" autoPlay loop muted>
-              <source
-                src="https://mdbootstrap.com/img/video/animation-intro.mp4"
-                type="video/mp4"
-                allowFullScreen
-              />
-            </video>
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <Link to={"/Travel"} className="btn btn-primary">
-                Go somewhere
-              </Link>
-            </div>
-          </div>
-                </div>
-            <div className="sec2-travel-video">
-              <Link alt="Travel-tips" to={"/Travel"}>
-                <video
-                  className="w-100"
-                  autoPlay
-                  loop
-                  muted
-                  id="sec2-travel-vid-tip1"
+            <div className="row justify-content-center">
+              <div className="col ">
+                <div
+                  className="card bg-transparent h-100"
+                  style={{ width: "360px" }}
                 >
-                  <source
-                    src="../../assets/media/Prague.MP4"
-                    type="video/mp4"
-                    allowFullScreen
-                  />
-                </video>
-              </Link>
-              <Link
-                id="sec2-travel-title-tip1"
-                alt="Travel-tips"
-                to={"/Travel"}
-              >
-                <h1>Prague</h1>
-              </Link>
-              <Link id="sec2-travel-text-tip1" alt="Travel-tips" to={"/Travel"}>
-                <p>
-                  Where history whispers through every charming street corner.
-                  🏰🇨🇿 #PragueMagic
-                </p>
-              </Link>
-              <Link alt="Travel-tips" to={"/Travel"}>
-                <video
-                  id="sec2-travel-vid-tip2"
-                  className="sec2-travel-response2"
-                  src="../../assets/media/Venecia.MP4"
-                  autoPlay
-                  loop
-                  muted
-                ></video>
-              </Link>
-              <Link
-                id="sec2-travel-title-tip2"
-                alt="Travel-tips"
-                to={"/Travel"}
-              >
-                <h1 className="sec2-travel-response2">Venice</h1>
-              </Link>
-              <Link id="sec2-travel-text-tip2" alt="Travel-tips" to={"/Travel"}>
-                <p className="sec2-travel-response2">
-                  A timeless maze of canals and dreams. 🚣‍♂️✨ #VenetianSplendor
-                </p>
-              </Link>
-              <Link alt="Travel-tips" to={"/Travel"}>
-                <video
-                  id="sec2-travel-vid-tip3"
-                  className="sec2-travel-response3"
-                  src="../../assets/media/Italy2.MP4"
-                  autoPlay
-                  loop
-                  muted
-                ></video>
-              </Link>
-              <Link
-                id="sec2-travel-title-tip3"
-                alt="Travel-tips"
-                to={"/Travel"}
-              >
-                <h1 className="sec2-travel-response3">Florencia</h1>
-              </Link>
-              <Link id="sec2-travel-text-tip3" alt="Travel-tips" to={"/Travel"}>
-                <p className="sec2-travel-response3">
-                  Florence, where art, history, and beauty converge! A city that
-                  steals your heart with every cobblestone street and
-                  Renaissance masterpiece. 🇮🇹❤️ #FlorenceMagic
-                </p>
-              </Link>
+                  <img className="w-100" src={trollPrague} />
+                  <div className="card-body ">
+                    <Link
+                      id="sec2-travel-title-tip1"
+                      alt="Travel-tips"
+                      to={"/Travel"}
+                    >
+                      <h1 className=" text-white">Prague</h1>
+                    </Link>
+                    <Link
+                      id="sec2-travel-text-tip1"
+                      alt="Travel-tips"
+                      to={"/Travel"}
+                    >
+                      <p className=" text-white">
+                        Where history whispers through every charming street
+                        corner. 🏰🇨🇿 #PragueMagic
+                      </p>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="col ">
+                <div
+                  className="card bg-transparent h-100"
+                  style={{ width: "360px" }}
+                >
+                  <img src={venice} alt="Venice" />
+                  <div className="card-body">
+                    <Link
+                      id="sec2-travel-title-tip2"
+                      alt="Travel-tips"
+                      to={"/Travel"}
+                    >
+                      <h1 className=" text-white">Venice</h1>
+                    </Link>
+                    <Link
+                      id="sec2-travel-text-tip2"
+                      alt="Travel-tips"
+                      to={"/Travel"}
+                    >
+                      <p className=" text-white">
+                        A timeless maze of canals and dreams. 🚣‍♂️✨
+                        #VenetianSplendor
+                      </p>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="col ">
+                <div
+                  className="card bg-transparent h-100"
+                  style={{ width: "360px" }}
+                >
+                  <img src={Florence} alt="Florence" />
+                  <div className="card-body">
+                    <Link
+                      id="sec2-travel-title-tip3"
+                      alt="Travel-tips"
+                      to={"/Travel"}
+                    >
+                      <h1 className=" text-white">Florencia</h1>
+                    </Link>
+                    <Link
+                      id="sec2-travel-text-tip3"
+                      alt="Travel-tips"
+                      to={"/Travel"}
+                    >
+                      <p className=" text-white">
+                        Florence, where art, history, and beauty converge! 🇮🇹❤️
+                        #FlorenceMagic
+                      </p>
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
+      {/* GALLERY */}
       <section className="section-padding" id="gallery">
         <div className="sectioner-header text-center">
           <h2>
-            <Link alt="Gallery" href="./Pages/gallery.html">
+            <Link alt="Gallery" to={"/Gallery"}>
               Gallery
             </Link>
           </h2>
           <span className="line"></span>
         </div>
 
-        <div id="galleryC" className="carousel slide" data-bs-ride="carousel">
-          <div className="carousel-indicators">
-            <button
-              aria-label="Slide1"
-              type="button"
-              data-bs-target="#galleryC"
-              data-bs-slide-to="0"
-              className="active"
-            ></button>
-            <button
-              aria-label="Slide2"
-              type="button"
-              data-bs-target="#galleryC"
-              data-bs-slide-to="1"
-            ></button>
-            <button
-              aria-label="Slide3"
-              type="button"
-              data-bs-target="#galleryC"
-              data-bs-slide-to="2"
-            ></button>
-            <button
-              aria-label="Slide4"
-              type="button"
-              data-bs-target="#galleryC"
-              data-bs-slide-to="3"
-            ></button>
-            <button
-              aria-label="Slide5"
-              type="button"
-              data-bs-target="#galleryC"
-              data-bs-slide-to="4"
-            ></button>
-            <button
-              aria-label="Slide6"
-              type="button"
-              data-bs-target="#galleryC"
-              data-bs-slide-to="5"
-            ></button>
-            <button
-              aria-label="Slide7"
-              type="button"
-              data-bs-target="#galleryC"
-              data-bs-slide-to="6"
-            ></button>
-          </div>
-
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <div className="d-flex justify-content-center">
-                <img
-                  src="../../assets/media/Water.webp"
-                  alt="Tominé"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div className="carousel-item">
-              <div className="d-flex justify-content-center">
-                <img
-                  loading="lazy"
-                  className="carousel-img"
-                  src="../../assets/media/Rest.webp"
-                  alt="Bogotá"
-                />
-              </div>
-            </div>
-            <div className="carousel-item">
-              <div className="d-flex justify-content-center">
-                <img
-                  src="../../assets/media/People.webp"
-                  alt="Bogotá"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div className="carousel-item">
-              <div className="d-flex justify-content-center">
-                <img
-                  loading="lazy"
-                  className="carousel-img"
-                  src="../../assets/media/monument.webp"
-                  alt="Bogotá"
-                />
-              </div>
-            </div>
-            <div className="carousel-item">
-              <div className="d-flex justify-content-center">
-                <img
-                  src="../../assets/media/Mer.webp"
-                  alt="Bogotá"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div className="carousel-item">
-              <div className="d-flex justify-content-center">
-                <img
-                  src="../../assets/media/graffiti.webp"
-                  alt="Bogotá"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div className="carousel-item">
-              <div className="d-flex justify-content-center">
-                <img
-                  loading="lazy"
-                  className="carousel-img"
-                  src="../../assets/media/fade.webp"
-                  alt="Bogotá"
-                />
-              </div>
-            </div>
-          </div>
-
-          <button
-            aria-label="Previous"
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#galleryC"
-            data-bs-slide="prev"
-          >
-            <span className="carousel-control-prev-icon"></span>
-          </button>
-          <button
-            aria-label="Next"
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#galleryC"
-            data-bs-slide="next"
-          >
-            <span className="carousel-control-next-icon"></span>
-          </button>
-        </div>
+        <MDBCarousel showControls interval={3000}>
+          <MDBCarouselItem itemId={1} interval={1000}>
+            <img
+              src={Bird}
+              className="d-block w-75 mx-auto"
+              alt="Bird"
+            />
+          </MDBCarouselItem>
+          <MDBCarouselItem itemId={2}>
+            <img
+              src={Deck}
+              className="d-block w-75 mx-auto"
+              alt="..."
+            />
+          </MDBCarouselItem>
+          <MDBCarouselItem itemId={3}>
+            <img
+              src={Contact}
+              className="d-block w-75 mx-auto"
+              alt="..."
+            />
+          </MDBCarouselItem>
+          <MDBCarouselItem itemId={4}>
+            <img
+              src={Monserrat}
+              className="d-block w-75 mx-auto"
+              alt="..."
+            />
+          </MDBCarouselItem>
+        </MDBCarousel>
       </section>
-
+       {/* CONTACT*/}
       <section className="contact section-padding">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
               <div className="sectioner-header text-center">
                 <h2>
-                  <Link alt="Contact-me" href="./Pages/contact.html">
+                  <Link alt="Contact-me" to={"/Contact"}>
                     Ask Me Anything!
                   </Link>
                 </h2>
