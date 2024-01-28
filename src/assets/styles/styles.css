@@ -7,7 +7,7 @@
   padding: 0;
   box-sizing: border-box;
   /*Respetar los padding adicionales*/
-  font-family: "museo-slab", "sans";
+  font-family: "museo-slab", "sans-serif";
 }
 
 /* ------------Smooth Scrolling------------- */
@@ -123,57 +123,6 @@ a {
 /*---- Headers Underline End ----*/
 /* ------------ Index Start ------------- */
 /*---- Navbar Start----*/
-.navbar {
-  box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.049803922);
-  position: fixed;
-  right: 0;
-  left: 0;
-  width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-  min-height: 50px;
-  line-height: 50px;
-  background: rgba(255, 255, 255, 0.9);
-  z-index: 1030;
-}
-
-.navbar .nav-item {
-  margin: 0 5px;
-  padding: 0;
-}
-
-.navbar .nav-item a {
-  color: black;
-  text-transform: uppercase;
-  font-weight: lighter;
-  font-size: 16px;
-}
-
-.navbar .nav-item a:hover {
-  color: rgb(122, 96, 255);
-}
-
-.navbar .nav-link {
-  padding: 0;
-}
-
-.navbar .navbar-toggler {
-  cursor: pointer;
-}
-
-.navbar .navbar-toggler span {
-  color: white;
-}
-
-.navbar-style2 .active:after,
-.navbar-style2 .nav-link:after {
-  display: none;
-}
-
-.logo-1 {
-  height: 50px;
-}
-
 /*---- Navbar End ----*/
 /*---- Banner Start ----*/
 .banner {
@@ -241,7 +190,7 @@ a {
 }
 /*------ Media Query Start -------*/
 @media all and (max-width: 1050px) {
-  .navbar .navbar-collapse {
+  .navbar {
     overflow: auto;
     background: rgba(187, 191, 202, 0.98);
     color: white !important;
@@ -1033,4 +982,8 @@ input {
 
 .mt-100 {
   margin-top: 100px;
+}
+
+.font {
+  font-family: "museo-slab", "sans-serif";
 }/*# sourceMappingURL=styles.css.map */
