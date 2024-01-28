@@ -2,7 +2,14 @@
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "./assets/styles/styles.css"
+import Home from "./components/Home/Home";
+import About from "./components/About/About";
+import Travel from "./components/Travel/Travel";
+import Gallery from "./components/Gallery/Gallery";
+import Store from "./components/ItemListContainer/ItemListContainer";
+import Contact from "./components/Contact/Contact";
 
 function App() {
   return (
@@ -11,7 +18,12 @@ function App() {
       <BrowserRouter basename="/">
       <Header />
         <Routes>
-          <Route path={"/"} element={<ItemListContainer />} />
+          <Route path={"/"} element={<Home />} />
+          <Route path={"/About"} element={<About />} />
+          <Route path={"/Travel"} element={<Travel />} />
+          <Route path={"/Gallery"} element={<Gallery />} />
+          <Route path={"/Store"} element={<Store />} />
+          <Route path={"/Contact"} element={<Contact />} />
         </Routes>
         <Footer />
       </BrowserRouter>

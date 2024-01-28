@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Travel = () => {
     return (
@@ -16,18 +17,18 @@ const Travel = () => {
                     Posted on October 1, 2023 by Mo the Traveler
                     </div>
 
-                    <a
+                    <Link
                     class="badge bg-secondary text-decoration-none link-light"
                     href="#!"
                     >
                     Prague
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                     class="badge bg-secondary text-decoration-none link-light"
                     href="#!"
                     >
                     Music
-                    </a>
+                    </Link>
                 </header>
 
                 <figure class="mb-4">
@@ -141,38 +142,38 @@ const Travel = () => {
                     <div class="col-sm-6">
                         <ul class="list-unstyled mb-0">
                         <li>
-                            <a href="#!" style="pointer-events: none">
+                            <Link href="#!" style="pointer-events: none">
                             Europe
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#!" style="pointer-events: none">
+                            <Link href="#!" style="pointer-events: none">
                             Africa
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#!" style="pointer-events: none">
+                            <Link href="#!" style="pointer-events: none">
                             America
-                            </a>
+                            </Link>
                         </li>
                         </ul>
                     </div>
                     <div class="col-sm-6">
                         <ul class="list-unstyled mb-0">
                         <li>
-                            <a href="#!" style="pointer-events: none">
+                            <Link href="#!" style="pointer-events: none">
                             Traval
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#!" style="pointer-events: none">
+                            <Link href="#!" style="pointer-events: none">
                             Food
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#!" style="pointer-events: none">
+                            <Link href="#!" style="pointer-events: none">
                             Work
-                            </a>
+                            </Link>
                         </li>
                         </ul>
                     </div>
