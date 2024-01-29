@@ -26,7 +26,7 @@ const ItemDetailContainer = () => {
     });
 
   }, [itemId]);
-  console.log(item);
+
   return (
     <ItemDetail item={item} onQuantityChange={handleQuantityChange} />
     
