@@ -7,7 +7,7 @@
   padding: 0;
   box-sizing: border-box;
   /*Respetar los padding adicionales*/
-  font-family: "museo-slab", "sans";
+  font-family: "museo-slab", "sans-serif";
 }
 
 /* ------------Smooth Scrolling------------- */
@@ -59,7 +59,6 @@ a {
 }
 
 .footer {
-  position: fixed;
   margin-top: 10px;
   padding: 20px;
   letter-spacing: 5px;
@@ -124,67 +123,14 @@ a {
 /*---- Headers Underline End ----*/
 /* ------------ Index Start ------------- */
 /*---- Navbar Start----*/
-.navbar {
-  box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.049803922);
-  position: fixed;
-  right: 0;
-  left: 0;
-  width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-  min-height: 50px;
-  line-height: 50px;
-  background: rgba(255, 255, 255, 0.9);
-  z-index: 1030;
-}
-
-.navbar .nav-item {
-  margin: 0 5px;
-  padding: 0;
-}
-
-.navbar .nav-item a {
-  color: black;
-  text-transform: uppercase;
-  font-weight: lighter;
-  font-size: 16px;
-}
-
-.navbar .nav-item a:hover {
-  color: rgb(122, 96, 255);
-}
-
-.navbar .nav-link {
-  padding: 0;
-}
-
-.navbar .navbar-toggler {
-  cursor: pointer;
-}
-
-.navbar .navbar-toggler span {
-  color: white;
-}
-
-.navbar-style2 .active:after,
-.navbar-style2 .nav-link:after {
-  display: none;
-}
-
-.logo-1 {
-  height: 50px;
-}
-
 /*---- Navbar End ----*/
 /*---- Banner Start ----*/
 .banner {
-  background: rgb(187, 191, 202);
-  background: linear-gradient(to left, rgb(79, 112, 156) 35%, rgb(33, 53, 85) 46%);
   padding: 150px 0px;
   position: relative;
 }
 .banner .banner-content .banner-title {
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
   padding: 10px;
 }
 .banner .banner-content .banner-text {
@@ -193,29 +139,28 @@ a {
   margin: 50px 0px 0px;
   margin: 40px 0px;
   margin: 25px 0px;
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
 }
-.banner .banner-content a {
+.banner .banner-content Link {
   font-size: 20px;
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
   text-shadow: 2px 2px black;
   transition-duration: 4s;
   transition-delay: 2s;
 }
-.banner .banner-content a:hover {
+.banner .banner-content Link:hover {
   color: rgb(79, 112, 156);
+}
+.banner .svg-wave .svg-hero {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 .banner-img {
   height: 350px;
   border-radius: 20px;
-}
-
-.svg-wave .svg-hero {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  z-index: 100;
 }
 
 /*---- Banner End ----*/
@@ -245,7 +190,7 @@ a {
 }
 /*------ Media Query Start -------*/
 @media all and (max-width: 1050px) {
-  .navbar .navbar-collapse {
+  .navbar {
     overflow: auto;
     background: rgba(187, 191, 202, 0.98);
     color: white !important;
@@ -324,7 +269,7 @@ a {
   }
 }
 /* ------------ TRAVEL TIPS SECTION 2------------- */
-#travel a {
+#travel {
   color: white;
 }
 
@@ -1011,6 +956,10 @@ input {
 }
 
 /* Background Colors - Light to Dark */
+.blue-steelbg {
+  background-color: rgb(79, 112, 156);
+}
+
 .ivory-cream {
   background-color: rgb(252, 248, 236);
 }
@@ -1033,4 +982,8 @@ input {
 
 .mt-100 {
   margin-top: 100px;
+}
+
+.font {
+  font-family: "museo-slab", "sans-serif";
 }/*# sourceMappingURL=styles.css.map */

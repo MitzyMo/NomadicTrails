@@ -5,7 +5,7 @@
 $font1: "museo-slab";
 $font2: "museo-slab-rounded";
 $font3: "sans-serif";
-$font3: "sans";
+$font4: "sans";
 $blue-steel: rgb(79, 112, 156, 1);
 $blue-deep: rgb(33, 53, 85, 1);
 $lavander-mist: rgb(205, 159, 250);
@@ -96,7 +96,7 @@ a {
 }
 
 .footer {
-    position: fixed;
+
     margin-top: $xs1;
     padding: $xs2;
     letter-spacing: 5px;
@@ -162,68 +162,18 @@ a {
 /* ------------ Index Start ------------- */
 
 /*---- Navbar Start----*/
-.navbar {
-    box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.049803922);
-    position: fixed;
-    right: 0;
-    left: 0;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    min-height: $sm1;
-    line-height: $sm1;
-    background: $white-subtle;
-    z-index: 1030;
-}
 
-.navbar .nav-item {
-    margin: 0 5px;
-    padding: 0;
-}
-
-.navbar .nav-item a {
-    color: $black;
-    text-transform: uppercase;
-    font-weight: lighter;
-    font-size: 16px;
-}
-
-.navbar .nav-item a:hover {
-    color: $electric-violet;
-}
-
-.navbar .nav-link {
-    padding: 0;
-}
-
-.navbar .navbar-toggler {
-    cursor: pointer;
-}
-
-.navbar .navbar-toggler span {
-    color: $white;
-}
-
-.navbar-style2 .active:after,
-.navbar-style2 .nav-link:after {
-    display: none;
-}
-
-.logo-1 {
-    height: $sm1;
-}
 /*---- Navbar End ----*/
 
 /*---- Banner Start ----*/
+
 .banner {
-    background: $slate-gray;
-    background: linear-gradient(to left, $blue-steel 35%, $blue-deep 46%);
     padding: 150px 0px;
     position: relative;
 
     .banner-content {
         .banner-title {
-            color: $white;
+            color: $white-subtle;
             padding: $xs1;
         }
 
@@ -233,19 +183,28 @@ a {
             margin: $sm1 0px 0px;
             margin: $xs4 0px;
             margin: 25px 0px;
-            color: $white;
+            color: $white-subtle;
         }
 
-        a {
+        Link {
             font-size: $xs2;
-            color: $white;
+            color: $white-subtle;
             text-shadow: 2px 2px $black;
             transition-duration: 4s;
             transition-delay: 2s;
         }
-        a:hover{
+        Link:hover{
             color: $blue-steel;
         }
+    }
+    .svg-wave {
+        .svg-hero {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            z-index: 100;
+        }
+    
     }
 }
 
@@ -254,15 +213,6 @@ a {
     border-radius: $xs2;
 }
 
-.svg-wave {
-    .svg-hero {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        z-index: 100;
-    }
-
-}
 
 /*---- Banner End ----*/
 
@@ -296,7 +246,7 @@ a {
 
 /*------ Media Query Start -------*/
 @media all and (max-width:1050px) {
-    .navbar .navbar-collapse {
+    .navbar  {
         overflow: auto;
         background: $slate-gray-light;
         color: $white !important;
@@ -315,7 +265,6 @@ a {
         padding-bottom: $xs2;
         margin: $xs1 0px 0px;
     }
-
     #contact_form {
         margin-bottom: $xs2;
     }
@@ -391,7 +340,7 @@ a {
 
 /* ------------ TRAVEL TIPS SECTION 2------------- */
 
-#travel a{
+#travel {
     color: $white;
 }
 
@@ -1153,6 +1102,9 @@ input {
 }
 
   /* Background Colors - Light to Dark */
+  .blue-steelbg {
+    background-color: $blue-steel;
+}
 .ivory-cream {
     background-color: $ivory-cream;
 }
@@ -1174,3 +1126,7 @@ input {
     padding-right: 10px;
 }
 .mt-100 { margin-top: 100px; }
+
+.font{
+    font-family: $font1, $font3;
+}

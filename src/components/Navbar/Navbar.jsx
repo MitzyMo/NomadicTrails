@@ -1,77 +1,40 @@
 import React, { useState } from "react";
-import "../../assets/styles/styles.css";
+import { MDBContainer,MDBNavbar,MDBNavbarBrand,MDBNavbarToggler,MDBNavbarNav,MDBNavbarItem,MDBNavbarLink,MDBIcon,MDBCollapse,MDBBadge,} from "mdb-react-ui-kit";
+import Logo from "../Brand/Logo";
+import CartWidget from "../CartWidget/CartWidget";
 
-const NavBar = ({ size }) => {
+const Navbar = ({ totalQuantity }) => {
+  const [openNavSecond, setOpenNavSecond] = useState(false);
+
   return (
-    <>
-    <nav className="navbar navbar-expand-xl sticky-top">
-        <div className="container-fluid">
-          <a className="navbar-brand" alt="Landing-Page" href="#">
-            <img
-              src="../../assets/media/Logo.webp"
-              alt="logo"
-              loading="lazy"
-            />
-          </a>
-          <button
-            aria-label="Menu"
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapsibleNavbar"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-        </div>
-        <div className="container-fluid">
-          <div className="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <a alt="Landing-Page" className="nav-link" href="./index.html">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  alt="About-me"
-                  className="nav-link"
-                  href="./Pages/About.html"
-                >
-                  About me
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  alt="Travel-tips"
-                  className="nav-link"
-                  href="./Pages/travel.html"
-                >
-                  Travel Tips
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  alt="Gallery"
-                  className="nav-link"
-                  href="./Pages/gallery.html"
-                >
-                  Gallery
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  alt="Contact-me"
-                  className="nav-link"
-                  href="./Pages/contact.html"
-                >
-                  Contact me
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </>
+    <MDBNavbar expand="lg" light bgColor="light" className="font">
+      <MDBContainer fluid>
+        <MDBNavbarBrand href="/">
+        <Logo size={40} alt="Mo's Logo" />
+        </MDBNavbarBrand>
+        <MDBNavbarToggler
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          onClick={() => setOpenNavSecond(!openNavSecond)}
+        >
+          <MDBIcon icon="bars" fas />
+        </MDBNavbarToggler>
+        <MDBCollapse navbar open={openNavSecond}>
+          <MDBNavbarNav right fullWidth={false} className='mb-2 mb-lg-0'>
+            <MDBNavbarLink alt="Home"  aria-current="page" href="/" >Home</MDBNavbarLink>
+            <MDBNavbarLink alt="About me"  aria-current="page" href="/About" >About me</MDBNavbarLink>
+            <MDBNavbarLink alt="Travel Tips"  aria-current="page" href="/Travel" >Travel Tips</MDBNavbarLink>
+            <MDBNavbarLink alt="Gallery"  aria-current="page" href="/Gallery" >Gallery</MDBNavbarLink>
+            <MDBNavbarLink alt="Store"  aria-current="page" href="/Store" >Store</MDBNavbarLink>
+            <MDBNavbarLink alt="Contact"  aria-current="page" href="/Contact" >Contact me</MDBNavbarLink>
+            <MDBNavbarLink>
+           < CartWidget totalQuantity={totalQuantity} ></CartWidget>
+            </MDBNavbarLink>
+          </MDBNavbarNav>
+        </MDBCollapse>
+      </MDBContainer>
+    </MDBNavbar>
   );
-};
-export default NavBar;
+}
+
+export default Navbar;
