@@ -7,8 +7,6 @@ const Breadcrumb = ({ pageId }) => {
     useEffect(() => {
         setPage(pageId);
     }, [pageId]);
-
-console.log(pageId)
     return (
         <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
