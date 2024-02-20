@@ -6,7 +6,7 @@ import Banner from '../Home/Banner';
 //Componente presentación
 
 const BrandName = () => {
-  const backgrounds = ['blue-steel', 'deep-teal-blue', 'blue-steelbg'];
+/*   const backgrounds = ['blue-steel', 'deep-teal-blue', 'blue-steelbg'];
   // state name and state modifier
   const [currentBackground, setCurrentBackground] = useState('');
   //Another React Hook
@@ -27,11 +27,11 @@ const BrandName = () => {
 
     // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
-  }, [backgrounds]);
+  }, [backgrounds]); */
 
   return (
     <>
-        <Banner id="Brandbg" className={`mt-75 ${currentBackground}`}/>
+        <Banner id="Brandbg" className="mt-75 blue-steelbg"/>
     </>
   );
 };

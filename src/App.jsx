@@ -12,12 +12,14 @@ import Store from "./components/ItemListContainer/ItemListContainer";
 import Contact from "./components/Contact/Contact";
 import ErrorHandler from "./components/ItemListContainer/ErrorHandler";
 import ItemDetailContainer from "./components/ItemListContainer/ItemDetailContainer";
+import CartContextProvider from "./components/context/CartContext";
 
 function App() {
 
   return (
     <>
-      <BrowserRouter basename="/">
+<CartContextProvider>
+<BrowserRouter basename="/">
         <Header />
         <Routes>
           <Route path={"/"} element={<Home />} />
@@ -32,6 +34,7 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
+</CartContextProvider>
     </>
   );
 }

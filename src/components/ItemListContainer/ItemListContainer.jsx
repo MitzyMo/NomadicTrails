@@ -19,7 +19,7 @@ const ItemListContainer = ({ onQuantityChange }) => {
 
   // Extract unique categories from the products
   const categories = Array.from(
-    new Set(arrayproducts.map((item) => item.category.name))
+    new Set(arrayproducts.map((item) => item.category))
   );
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const ItemListContainer = ({ onQuantityChange }) => {
     setActiveCategory(category); // Set active category when the component mounts
     const promesa = new Promise((resolve, reject) => {
       let allProducts = category
-        ? arrayproducts.filter((item) => item.category.name === category)
+        ? arrayproducts.filter((item) => item.category === category)
         : arrayproducts;
 
       allProducts.length > 0
@@ -47,7 +47,7 @@ const ItemListContainer = ({ onQuantityChange }) => {
     setId(selectedCategory); // Set the selected category as the id state
     setActiveCategory(selectedCategory); // Update active category on filter change
     const filteredProducts = arrayproducts.filter(
-      (item) => item.category.name === selectedCategory
+      (item) => item.category === selectedCategory
     );
     setProducts(filteredProducts);
   };
@@ -88,8 +88,7 @@ const ItemListContainer = ({ onQuantityChange }) => {
           <div className="col-10">
             <div className="row">
               <div className="col">
-                {/* Pass the selected category (id) to the Breadcrumb component */}
-                <Breadcrumb pageId={id} />
+                <Breadcrumb />
               </div>
             </div>
             <div className="row mb-3">

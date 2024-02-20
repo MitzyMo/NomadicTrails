@@ -12,11 +12,9 @@ const Breadcrumb = ({ pageId }) => {
         <ol className="breadcrumb">
             <li className="breadcrumb-item">
             <Link to={"/Store"}>Home</Link>
-            </li>
-            {pageId && (
-            <>
+            </li> {pageId && (<>
                 <li className="breadcrumb-item">
-                <Link to={`/Store/${pageId}`}>{pageId}</Link>
+                <Link key={pageId} to={`/Store/${pageId}`}>{pageId}</Link>
                 </li>
             </>
             )}

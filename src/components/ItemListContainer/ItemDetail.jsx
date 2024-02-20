@@ -1,50 +1,19 @@
-import React, { useState } from "react";
-import {MDBCard,MDBCardBody,MDBCardText,MDBCardTitle,MDBCardImage,MDBBtn,MDBRipple,MDBContainer, MDBBtnGroup,} from "mdb-react-ui-kit";
-import {LiaCartPlusSolid,LiaTrashAltSolid,} from "react-icons/lia";
+import { useContext, useState } from "react";
+import {MDBCard,MDBCardBody,MDBCardText,MDBCardTitle,MDBCardImage,MDBRipple,MDBContainer} from "mdb-react-ui-kit";
+import { CartContext } from "../context/CartContext";
+import Loading from "./Loading";
+import ItemCount from "./ItemCount";
 
-const ItemDetail = ({ item,onQuantityChange }) => {
+const ItemDetail = ({ item }) => {
+  const { addItem } = useContext(CartContext);
 
-  
+  const onAdd = (quantity) => {
+      addItem(item, quantity);
+  };
+
   if (!item) {
-    return <div>Loading...</div>;
+    return <Loading></Loading>;
   }
-  const [quantity, setQuantity] = useState(0);
-  const [showCartElements, setShowCartElements] = useState(false);
-
-  const handleAddToCart = () => {
-    setQuantity(0);
-    setShowCartElements((prevShowCartElements) => !prevShowCartElements);
-    onQuantityChange(quantity);
-  };
-
-  const handleIncrease = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
-  };
-
-  const handleDecrease = () => {
-    if (quantity > 1) {
-      setQuantity((prevQuantity) => prevQuantity - 1);
-      onQuantityChange(quantity - 1);
-    } else {
-      setShowCartElements(false);
-    }
-  };
-
-  const renderActionButton = () => {
-    if (quantity > 1) {
-      return (
-        <MDBBtn outline color="danger" onClick={handleDecrease}>
-          -
-        </MDBBtn>
-      );
-    } else {
-      return (
-        <MDBBtn outline color="danger" onClick={handleAddToCart}>
-          <LiaTrashAltSolid />
-        </MDBBtn>
-      );
-    }
-  };
   return (
     <MDBContainer fluid className="w-50" alignment="center">
       <MDBCard>
@@ -53,13 +22,12 @@ const ItemDetail = ({ item,onQuantityChange }) => {
           rippleTag="div"
           className="bg-image hover-overlay"
         >
-          {item.images.length > 0 && (
             <MDBCardImage
-              src={item.images[0]}
+              src={item.image}
               className="card-img-top"
               alt={item.title}
             />
-          )}
+
           <a>
             <div
               className="mask"
@@ -71,25 +39,7 @@ const ItemDetail = ({ item,onQuantityChange }) => {
           <MDBCardTitle>{item.title}</MDBCardTitle>
           <MDBCardText>${item.price}</MDBCardText>
           <MDBCardText>{item.description}</MDBCardText>
-          {!showCartElements ? (
-              <MDBBtn
-              to=""
-              className="btn btn-primary"
-              onClick={handleAddToCart}
-            >
-              ADD TO CART <LiaCartPlusSolid size={24} />
-            </MDBBtn>
-          ) : (
-            <MDBBtnGroup>
-              <MDBBtn outline color="success" onClick={handleIncrease}>
-                +
-              </MDBBtn>
-              <MDBBtn outline color="secondary" onClick={handleIncrease}>
-                {quantity}
-              </MDBBtn>
-              {renderActionButton()}
-            </MDBBtnGroup>
-          )}
+          <ItemCount stock={item.stock} onAdd={onAdd} />
         </MDBCardBody>
       </MDBCard>
     </MDBContainer>
