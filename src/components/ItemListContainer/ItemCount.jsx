@@ -1,52 +1,31 @@
 import { useEffect, useState } from "react";
-import { MDBBtn, MDBBtnGroup } from "mdb-react-ui-kit";
-import { LiaCartPlusSolid, LiaTrashAltSolid } from "react-icons/lia";
 import { Link } from "react-router-dom";
+import { MDBBtn, MDBBtnGroup } from "mdb-react-ui-kit";
+import { LiaOpencart } from "react-icons/lia";
 
 const ItemCount = ({ stock, onAdd }) => {
-    const [counter, setCounter] = useState(0);
+    const [counter, setCounter] = useState(1);
     const [itemStock, setItemStock] = useState(stock);
     const [itemAdded, setItemAdded] = useState(false);
-console.log("Before")
-console.log(itemAdded)
-console.log(itemStock)
-console.log(counter)
-    const increase = () => {
+
+    const incrementar = () => {
         if (counter < itemStock) {
-        setCounter((prevCounter) => prevCounter + 1);
-        onAdd(counter + 1);
+        setCounter(counter + 1);
+        }
+    };
+
+    const decrementar = () => {
+        if (counter > 1) {
+        setCounter(counter - 1);
         }
     };
 
     const addToCart = () => {
-        setCounter(1);
+        if (counter <= itemStock) {
         setItemStock(itemStock - counter);
-        setItemAdded(true);
+        setCounter(1);
         onAdd(counter);
-    };
-
-    const decrease = () => {
-        if (counter > 1) {
-        setCounter((prevCounter) => prevCounter - 1);
-        onAdd(counter - 1);
-        } else {
-        setItemAdded(false);
-        }
-    };
-
-    const renderActionButton = () => {
-        if (counter > 1) {
-        return (
-            <MDBBtn outline color="danger" onClick={decrease}>
-            -
-            </MDBBtn>
-        );
-        } else {
-        return (
-            <MDBBtn outline color="danger" onClick={addToCart}>
-            <LiaTrashAltSolid />
-            </MDBBtn>
-        );
+        setItemAdded(true);
         }
     };
 
@@ -56,29 +35,31 @@ console.log(counter)
 
     return (
         <>
-        <div className="row my-1">
-            <div className="col-md-5">
-            {!itemAdded ? (
-                <MDBBtn to="" className="btn btn-primary" onClick={addToCart}>
-                ADD TO CART <LiaCartPlusSolid size={24} />
-                </MDBBtn>
+        <div className="d-flex justify-content-start gap-5 h-100">
+            <MDBBtnGroup>
+            <MDBBtn outline color="success" onClick={decrementar}>
+                -
+            </MDBBtn>
+
+            <MDBBtn outline color="secondary">
+                {counter}
+            </MDBBtn>
+            <MDBBtn outline color="success" onClick={incrementar}>
+                +
+            </MDBBtn>
+            </MDBBtnGroup>
+
+            {itemAdded ? (
+            <Link to={"/cart"} className="btn btn-primary ">
+                {" "}
+                Go to Cart <LiaOpencart size={24} />
+            </Link>
             ) : (
-                <div>
-                <MDBBtnGroup>
-                    <MDBBtn outline color="success" onClick={increase}>
-                    +
-                    </MDBBtn>
-                    <MDBBtn outline color="secondary">
-                    {counter}
-                    </MDBBtn>
-                    {renderActionButton()}
-                </MDBBtnGroup>
-                <Link to={"/cart"} className="btn btn-outline-info ">
-                    Go to Cart
-                </Link>
-                </div>
+            <MDBBtn className="btn btn-primary" onClick={addToCart}>
+                {" "}
+                Add to Cart <LiaOpencart size={19} />
+            </MDBBtn>
             )}
-            </div>
         </div>
         </>
     );

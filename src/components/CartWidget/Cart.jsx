@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { CartContext } from "./context/CartContext";
+import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
-import trash from "../assets/trash.svg";
+import {LiaTrashAltSolid,} from "react-icons/lia";
 
 const Cart = () => {
     const {cart, removeItem, clear, CantTotalProductos, SumaTotalProductos} = useContext(CartContext);
@@ -11,7 +11,7 @@ const Cart = () => {
             <div className="container">
                 <div className="row">
                     <div className="col text-center">
-                        <p className="display-1">🍔</p>
+                        <p className="display-1"></p>
                         <div className="alert alert-danger" role="alert">No se encontraron productos en el Carrito!</div>
                         <Link to={"/"} className="btn btn-warning my-5">Volver a la Página Principal</Link>
                     </div>
@@ -33,7 +33,7 @@ const Cart = () => {
                         <table className="table">
                             <tbody>
                                 <tr>
-                                    <td className="text-end align-middle" colSpan={6}><a href="#" onClick={clear} className="btn btn-warning">Vaciar Carrito <img src={trash} alt="Eliminar Producto" title="Eliminar Producto" /></a></td>
+                                    <td className="text-end align-middle" colSpan={6}><div onClick={clear} className="btn btn-warning">Vaciar Carrito <LiaTrashAltSolid /></div> </td>
                                 </tr>
                                 {cart.map(product =>
                                     <tr key={product.id}>
@@ -42,7 +42,7 @@ const Cart = () => {
                                         <td className="text-start align-middle">${product.price}</td>
                                         <td className="text-start align-middle">{product.quantity}</td>
                                         <td className="text-start align-middle">${product.quantity * product.price}</td>
-                                        <td className="text-end align-middle"><a href="#" onClick={() => {removeItem(product.id)}}><img src={trash} alt="Eliminar Producto" title="Eliminar Producto" /></a></td>
+                                        <td className="text-end align-middle"><div onClick={() => {removeItem(product.id)}}><LiaTrashAltSolid /></div></td>
                                     </tr>
                                 )}
                                 <tr>
@@ -56,6 +56,7 @@ const Cart = () => {
                 </div>
             </div>
     )
+
 }
 
 export default Cart;

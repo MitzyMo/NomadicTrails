@@ -1,49 +1,63 @@
-import { useContext, useState } from "react";
-import {MDBCard,MDBCardBody,MDBCardText,MDBCardTitle,MDBCardImage,MDBRipple,MDBContainer} from "mdb-react-ui-kit";
+import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
-import Loading from "./Loading";
 import ItemCount from "./ItemCount";
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+  MDBCardText,
+  MDBCardTitle,
+  MDBCol,
+  MDBContainer,
+  MDBRipple,
+  MDBRow,
+} from "mdb-react-ui-kit";
 
 const ItemDetail = ({ item }) => {
-  const { addItem } = useContext(CartContext);
+    const { addItem } = useContext(CartContext);
 
-  const onAdd = (quantity) => {
-      addItem(item, quantity);
-  };
+    const imagePath = item.image;
 
-  if (!item) {
-    return <Loading></Loading>;
-  }
-  return (
-    <MDBContainer fluid className="w-50" alignment="center">
-      <MDBCard>
-        <MDBRipple
-          rippleColor="light"
-          rippleTag="div"
-          className="bg-image hover-overlay"
-        >
-            <MDBCardImage
-              src={item.image}
-              className="card-img-top"
-              alt={item.title}
-            />
+    const onAdd = (quantity) => {
+        addItem(item, quantity);
+    };
 
-          <a>
-            <div
-              className="mask"
-              style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-            ></div>
-          </a>
-        </MDBRipple>
-        <MDBCardBody>
-          <MDBCardTitle>{item.title}</MDBCardTitle>
-          <MDBCardText>${item.price}</MDBCardText>
-          <MDBCardText>{item.description}</MDBCardText>
-          <ItemCount stock={item.stock} onAdd={onAdd} />
-        </MDBCardBody>
-      </MDBCard>
-    </MDBContainer>
-  );
+    return (
+        <>
+        <MDBContainer fluid alignment="end">
+            <MDBCard  style={{ maxWidth: "90%" }}>
+            <MDBRow className="g-0">
+                <MDBCol md="4">
+                <MDBRipple
+                    rippleColor="light"
+                    rippleTag="div"
+                    className="bg-image hover-overlay">
+                    <MDBCardImage
+                    className="card-img-top img-fluid"
+                    src={imagePath}
+                    alt={item.title}
+                    />
+                </MDBRipple>
+                </MDBCol>
+                <MDBCol md="8">
+                <MDBCardBody>
+                    <MDBCardTitle className="m-1">{item.title}</MDBCardTitle>
+                    <hr />
+                    <MDBCardText className="m-5 fw-bold">${item.price}</MDBCardText>
+                    <MDBCardText>{item.description}</MDBCardText>
+                    <br></br>
+                    <ItemCount
+                    className="m-5"
+                    stock={item.Stock}
+                    onAdd={onAdd}
+                    />
+                </MDBCardBody>
+                </MDBCol>
+            </MDBRow>
+            </MDBCard>
+        </MDBContainer>
+        </>
+    );
 };
 
 export default ItemDetail;

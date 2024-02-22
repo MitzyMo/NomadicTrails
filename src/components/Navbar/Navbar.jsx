@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MDBContainer,MDBNavbar,MDBNavbarBrand,MDBNavbarToggler,MDBNavbarNav,MDBNavbarItem,MDBNavbarLink,MDBIcon,MDBCollapse,MDBBadge,} from "mdb-react-ui-kit";
 import Logo from "../Brand/Logo";
-import CartWidget from "../Cart/CartWidget";
+import CartWidget from "../CartWidget/CartWidget";
 
 const Navbar = ({ totalQuantity }) => {
   const [openNavSecond, setOpenNavSecond] = useState(false);

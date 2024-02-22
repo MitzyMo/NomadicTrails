@@ -1,36 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import arrayproducts from "../json/products.json";
-import ItemDetail from './ItemDetail';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import arrayProductos from "../json/products.json";
+import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
-  const [item, setItem] = useState(null);
-  const { itemId } = useParams();
-  const [totalQuantity, setTotalQuantity] = useState(0);
+    const [item, setItem] = useState([]);
+    const {itemId} = useParams();
 
-  const handleQuantityChange = (newQuantity) => {
-    setTotalQuantity(newQuantity);
-  };
-
-
-  useEffect(() => {
-    const promesa = new Promise(resolve => {
-      setTimeout(() => {
-        let producto = arrayproducts.find(item => item.id == itemId);
-        resolve(producto);
-      }, 1000);
-    });
-
-    promesa.then(data => {
-      setItem(data);
-    });
-
-  }, [itemId]);
-
-  return (
-    <ItemDetail item={item} onQuantityChange={handleQuantityChange} />
+    useEffect(() => {
+        const promesa = new Promise(resolve => {
+            setTimeout(() => {
+                let producto = arrayProductos.find(item => item.id == itemId); // Obtenemos el producto con Id capturado por parámetro
+                resolve(producto);
+            }, 1000);
+        })
+        promesa.then(data => {
+            //console.log("Fetched item:", data);// Log the fetched item
+            setItem(data);
+        })
+    }, [itemId]);
     
-  );
+    return (
+        <ItemDetail item={item} />
+    )
+    
 }
 
 export default ItemDetailContainer;

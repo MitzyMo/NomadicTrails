@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { MDBBtn } from "mdb-react-ui-kit";
 
-const ProductCard = ({ item }) => {
+const ProductCard = ({ items }) => {
 
   return (
     <div className="col-md-3">
