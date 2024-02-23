@@ -12,12 +12,16 @@ import Store from "./components/ItemListContainer/ItemListContainer";
 import Contact from "./components/Contact/Contact";
 import ErrorHandler from "./components/ItemListContainer/ErrorHandler";
 import ItemDetailContainer from "./components/ItemListContainer/ItemDetailContainer";
+import CartContextProvider from "./components/context/CartContext"
+import Checkout from "./components/CartWidget/Checkout"
+import Cart from "./components/CartWidget/Cart";
 
 function App() {
 
   return (
     <>
-      <BrowserRouter basename="/">
+        <CartContextProvider>
+        <BrowserRouter basename="/">
         <Header />
         <Routes>
           <Route path={"/"} element={<Home />} />
@@ -28,10 +32,14 @@ function App() {
           <Route path="/Store/:category/" element={<Store />} />
           <Route path="/Store/:category/:itemId" element={<ItemDetailContainer />} />
           <Route path={"/Contact"} element={<Contact />} />
+          <Route path={"/cart"} element={<Cart />} />
+          <Route path={"/checkout"} element={<Checkout />} />
           <Route path={"*"} element={<ErrorHandler />} />
         </Routes>
         <Footer />
       </BrowserRouter>
+        </CartContextProvider>
+
     </>
   );
 }
