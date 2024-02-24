@@ -1,112 +1,66 @@
-import React, { useState, useContext, useEffect } from "react";
-import { MDBBtn, MDBBtnGroup } from "mdb-react-ui-kit";
-import { LiaCartPlusSolid, LiaTrashAltSolid } from "react-icons/lia";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { MDBBtn, MDBBtnGroup } from "mdb-react-ui-kit";
 
 const ItemCount = ({ stock, onAdd }) => {
   const [counter, setCounter] = useState(1);
   const [itemStock, setItemStock] = useState(stock);
-  const [showCartElements, setShowCartElements] = useState(false);
+  const [itemAdded, setItemAdded] = useState(false);
+
+  const incrementar = () => {
+    if (counter < itemStock) {
+      setCounter(counter + 1);
+    }
+  };
+
+  const decrementar = () => {
+    if (counter > 1) {
+      setCounter(counter - 1);
+    }
+  };
+
+  const addToCart = () => {
+    if (counter <= itemStock) {
+      setItemStock(itemStock - counter);
+      setCounter(1);
+      onAdd(counter);
+      setItemAdded(true);
+      //console.log("Agregaste " + counter + " productos al carrito. Quedan " + (itemStock - counter) + " productos disponibles.");
+    }
+  };
 
   useEffect(() => {
     setItemStock(stock);
   }, [stock]);
 
-  const handleAddToCart = () => {
-    setShowCartElements(!showCartElements);
-    console.log("Intentando Imprimir Stock:" + itemStock);
-  };
-
-  const handleIncrease = () => {
-    if (counter < itemStock) {
-      setCounter(counter + 1);
-    }
-    console.log(
-      "Agregaste " +
-        counter +
-        " productos al carrito. Quedan " +
-        (itemStock - counter) +
-        " productos disponibles."
-    );
-    //setCounter((prevcounter) => prevcounter + 1);
-  };
-
-  const handleDecrease = () => {
-    if (counter > 1) {
-      setCounter((prevcounter) => prevcounter - 1);
-    } else {
-      setShowCartElements(false);
-    }
-    console.log(
-      "Agregaste " +
-        counter +
-        " productos al carrito. Quedan " +
-        (itemStock - counter) +
-        " productos disponibles."
-    );
-  };
-
-  const addToCart = (counter) => {
-    if (counter <= itemStock) {
-      setItemStock(itemStock - counter);
-      setCounter(1);
-      onAdd(counter);
-      console.log(
-        "Agregaste " +
-          counter +
-          " productos al carrito. Quedan " +
-          (itemStock - counter) +
-          " productos disponibles. - -"
-      );
-    }
-  };
-  const handleAddToCartClick = () => {
-    handleAddToCart();
-    addToCart(counter); // Passing the current counter value
-  };
-
-  const renderActionButton = () => {
-    if (counter > 1) {
-      return (
-        <MDBBtn outline color="danger" onClick={handleDecrease}>
-          -
-        </MDBBtn>
-      );
-    } else {
-      return (
-        <MDBBtn outline color="danger" onClick={handleAddToCart}>
-          <LiaTrashAltSolid />
-        </MDBBtn>
-      );
-    }
-  };
-
   return (
     <>
-      {!showCartElements ? (
-        <MDBBtn
-          to=""
-          className="btn btn-primary"
-          onClick={handleAddToCartClick}
-        >
-          ADD TO CART <LiaCartPlusSolid size={24} />
-        </MDBBtn>
-      ) : (
-        <div>
-          <MDBBtnGroup className="mr-5">
-            <MDBBtn outline color="success" onClick={handleIncrease}>
-              +
-            </MDBBtn>
-            <MDBBtn outline color="secondary" onClick={handleIncrease}>
-              {counter}
-            </MDBBtn>
-            {renderActionButton()}
-          </MDBBtnGroup>
-          <Link to={"/cart"} className="btn btn-outline-info">
-            Go to Cart
+      <div className="gap-5">
+        <MDBBtnGroup className="mr-5">
+          <MDBBtn outline color="success" onClick={incrementar}>
+            +
+          </MDBBtn>
+          <MDBBtn outline color="secondary">
+            {counter}
+          </MDBBtn>
+          <MDBBtn outline color="danger" onClick={decrementar}>
+            -
+          </MDBBtn>
+        </MDBBtnGroup>
+        {itemAdded ? (
+          <Link to={"/cart"} className=" btn btn-outline-info">
+            Go To Cart
           </Link>
-        </div>
-      )}
+        ) : (
+          <MDBBtn
+            type="button"
+            className="ml-5 btn btn-outline-info"
+            onClick={addToCart}
+          >
+            Add to Cart
+          </MDBBtn>
+        )}
+      </div>
     </>
   );
 };

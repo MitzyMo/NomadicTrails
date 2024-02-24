@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
-import { Link } from "react-router-dom";
 
 const Checkout = () => {
     const [nombre, setNombre] = useState();
@@ -96,6 +95,5 @@ const Checkout = () => {
         </div>
     )
 }
-
 
 export default Checkout;
