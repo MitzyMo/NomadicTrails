@@ -5,6 +5,26 @@ export const CartContext = createContext();
 const CartContextProvider = ({children}) => {
     const [cart, setCart] = useState([]);
 
+    const [quantity, setQuantity] = useState(0);
+    const [showCartElements, setShowCartElements] = useState(false);
+
+    const handleAddToCart = () => {
+        setQuantity(1);
+        setShowCartElements((prevShowCartElements) => !prevShowCartElements);
+      };
+    
+      const handleIncrease = () => {
+        setQuantity((prevQuantity) => prevQuantity + 1);
+      };
+    
+      const handleDecrease = () => {
+        if (quantity > 1) {
+          setQuantity((prevQuantity) => prevQuantity - 1);
+        } else {
+          setShowCartElements(false);
+        }
+      };
+
     const addItem = (item, quantity) => {
         if (isInCart(item.id)) {
             let pos = cart.findIndex(product => product.id === id);
@@ -37,7 +57,7 @@ const CartContextProvider = ({children}) => {
     }
 
     return (
-        <CartContext.Provider value={{cart, addItem, removeItem, clear, CantTotalProductos, SumaTotalProductos}}>
+        <CartContext.Provider value={{cart, addItem, removeItem, clear, CantTotalProductos, SumaTotalProductos, handleAddToCart,handleDecrease,handleIncrease, showCartElements, quantity}}>
             {children}
         </CartContext.Provider>
     )

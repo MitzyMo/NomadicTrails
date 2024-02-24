@@ -4,26 +4,9 @@ import { LiaCartPlusSolid, LiaTrashAltSolid } from "react-icons/lia";
 import { CartContext } from "../context/CartContext";
 
 const ItemCount = () => {
-  const { addItem, CantTotalProductos } = useContext(CartContext);
-  const [quantity, setQuantity] = useState(0);
-  const [showCartElements, setShowCartElements] = useState(false);
+  const { handleAddToCart,handleDecrease,handleIncrease,showCartElements,quantity } = useContext(CartContext);
 
-  const handleAddToCart = () => {
-    setQuantity(1);
-    setShowCartElements((prevShowCartElements) => !prevShowCartElements);
-  };
 
-  const handleIncrease = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
-  };
-
-  const handleDecrease = () => {
-    if (quantity > 1) {
-      setQuantity((prevQuantity) => prevQuantity - 1);
-    } else {
-      setShowCartElements(false);
-    }
-  };
 
   const renderActionButton = () => {
     if (quantity > 1) {
@@ -58,7 +41,6 @@ const ItemCount = () => {
           {renderActionButton()}
         </MDBBtnGroup>
       )}
-      <p>Total Products: {CantTotalProductos()}</p>
     </>
   );
 };
