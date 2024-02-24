@@ -1,11 +1,10 @@
 import React from "react";
 import { MDBCard, MDBCardBody, MDBCardText, MDBCardTitle, MDBCardImage, MDBRipple, MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
-import { LiaCartPlusSolid } from "react-icons/lia";
 import Loading from "./Loading";
 import ItemCount from "./ItemCount";
-import Breadcrumb from "./Breadcrumb";
 
-const ItemDetail = ({ item, onQuantityChange }) => {
+
+const ItemDetail = ({ item }) => {
   if (!item) {
     return <Loading />;
   }
@@ -38,7 +37,7 @@ const ItemDetail = ({ item, onQuantityChange }) => {
               <MDBCardTitle>{item.title}</MDBCardTitle>
               <MDBCardText>${item.price}</MDBCardText>
               <MDBCardText>{item.description}</MDBCardText>
-              <ItemCount item={item} onQuantityChange={onQuantityChange} />
+              <ItemCount item={item} />
             </MDBCardBody>
           </MDBCol>
         </MDBRow>

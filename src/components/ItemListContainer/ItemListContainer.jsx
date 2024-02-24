@@ -17,7 +17,7 @@ import {
 } from "firebase/firestore";
 import Loading from "./Loading";
 
-const ItemListContainer = ({ onQuantityChange }) => {
+const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
   const { category } = useParams();
@@ -146,7 +146,6 @@ const ItemListContainer = ({ onQuantityChange }) => {
                   key={item.id}
                   item={item}
                   onClick={() => {}}
-                  onQuantityChange={onQuantityChange}
                 />
               ))}
             </div>

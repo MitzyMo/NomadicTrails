@@ -1,10 +1,9 @@
-import React, { createContext, useState } from "react";
+import { createContext, useState } from "react";
 
 export const CartContext = createContext();
 
-const CartContextProvider = ({ children }) => {
+const CartContextProvider = ({children}) => {
     const [cart, setCart] = useState([]);
-    const [totalQuantity, setTotalQuantity] = useState(0);
 
     const addItem = (item, quantity) => {
         if (isInCart(item.id)) {
@@ -16,41 +15,32 @@ const CartContextProvider = ({ children }) => {
         }
     }
 
-
-    const removeItem = (item) => {
-        const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
-        setCart(updatedCart);
-        setTotalQuantity(totalQuantity - 1); // Decrement total quantity
-    };
+    const removeItem = (id) => {
+        const items = cart.filter(product => product.id != id);
+        setCart([...items]);
+    }
 
     const clear = () => {
         setCart([]);
-        setTotalQuantity(0); // Clear total quantity
-    };
+    }
+
+    const isInCart = (id) => {
+        return cart.some(product => product.id === id);
+    }
 
     const CantTotalProductos = () => {
-        // implement logic for total quantity calculation if needed
-    };
+        return cart.reduce((acum, product) => acum += product.quantity, 0);
+    }
 
     const SumaTotalProductos = () => {
-        // implement logic for sum of total products if needed
-    };
+        return cart.reduce((acum, product) => acum += product.quantity * product.price, 0);
+    }
 
     return (
-        <CartContext.Provider
-            value={{
-                cart,
-                addItem,
-                removeItem,
-                clear,
-                CantTotalProductos,
-                SumaTotalProductos,
-                totalQuantity, // Pass totalQuantity to the context value
-            }}
-        >
+        <CartContext.Provider value={{cart, addItem, removeItem, clear, CantTotalProductos, SumaTotalProductos}}>
             {children}
         </CartContext.Provider>
-    );
-};
+    )
+}
 
 export default CartContextProvider;

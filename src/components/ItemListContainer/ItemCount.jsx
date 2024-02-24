@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { MDBBtn, MDBBtnGroup } from "mdb-react-ui-kit";
 import { LiaCartPlusSolid, LiaTrashAltSolid } from "react-icons/lia";
+import { CartContext } from "../context/CartContext";
 
-const ItemCount = ({onQuantityChange }) => {
+const ItemCount = () => {
+  const { addItem, CantTotalProductos } = useContext(CartContext);
   const [quantity, setQuantity] = useState(0);
   const [showCartElements, setShowCartElements] = useState(false);
 
   const handleAddToCart = () => {
     setQuantity(1);
     setShowCartElements((prevShowCartElements) => !prevShowCartElements);
-    onQuantityChange(quantity);
   };
 
   const handleIncrease = () => {
@@ -19,7 +20,6 @@ const ItemCount = ({onQuantityChange }) => {
   const handleDecrease = () => {
     if (quantity > 1) {
       setQuantity((prevQuantity) => prevQuantity - 1);
-      onQuantityChange(quantity - 1);
     } else {
       setShowCartElements(false);
     }
@@ -44,11 +44,7 @@ const ItemCount = ({onQuantityChange }) => {
   return (
     <>
       {!showCartElements ? (
-        <MDBBtn
-          to=""
-          className="btn btn-primary"
-          onClick={handleAddToCart}
-        >
+        <MDBBtn to="" className="btn btn-primary" onClick={handleAddToCart}>
           ADD TO CART <LiaCartPlusSolid size={24} />
         </MDBBtn>
       ) : (
@@ -62,6 +58,7 @@ const ItemCount = ({onQuantityChange }) => {
           {renderActionButton()}
         </MDBBtnGroup>
       )}
+      <p>Total Products: {CantTotalProductos()}</p>
     </>
   );
 };
