@@ -5,16 +5,16 @@ import { LiaOpencart } from "react-icons/lia";
 import { CartContext } from "../context/CartContext";
 
 const CartWidget = () => {
-  const { totalQuantity } = useContext(CartContext);
+  const { CantTotalProductos } = useContext(CartContext);
 
   return (
     <>
-      {totalQuantity > 0 ? (
+      {CantTotalProductos > 0 ? (
         <Link to={"/cart"} className="btn btn-warning position-relative">
           <LiaOpencart />
           <span>
             <MDBBadge pill color="danger">
-              {totalQuantity}!
+              {CantTotalProductos}!
             </MDBBadge>
           </span>
         </Link>

@@ -9,6 +9,8 @@ const ItemDetail = ({ item }) => {
     return <Loading />;
   }
 
+
+
   return (
     <MDBContainer fluid className="w-50" alignment="center">
       <MDBCard>
