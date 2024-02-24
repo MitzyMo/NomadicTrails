@@ -1,16 +1,19 @@
 import React from "react";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import { MDBCard, MDBCardBody, MDBCardText, MDBCardTitle, MDBCardImage, MDBRipple, MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import Loading from "./Loading";
 import ItemCount from "./ItemCount";
 
 
 const ItemDetail = ({ item }) => {
+  const {addItem} = useContext(CartContext);
   if (!item) {
     return <Loading />;
   }
-
-
-
+  const onAdd = (quantity) => {
+    addItem(item, quantity);
+}
   return (
     <MDBContainer fluid className="w-50" alignment="center">
       <MDBCard>
@@ -40,8 +43,7 @@ const ItemDetail = ({ item }) => {
               <hr />
               <MDBCardText className="fw-bold">${item.price}</MDBCardText>
               <MDBCardText>{item.description}</MDBCardText>
-              <MDBCardText>{item.id}</MDBCardText>
-              <ItemCount item={item.id} />
+              <ItemCount item={item.id} onAdd={onAdd} />
             </MDBCardBody>
           </MDBCol>
         </MDBRow>
