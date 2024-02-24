@@ -8,6 +8,7 @@ import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ item }) => {
   const {addItem} = useContext(CartContext);
+  
   if (!item) {
     return <Loading />;
   }
@@ -42,8 +43,9 @@ const ItemDetail = ({ item }) => {
               <MDBCardTitle className="mb-3">{item.title}</MDBCardTitle>
               <hr />
               <MDBCardText className="fw-bold">${item.price}</MDBCardText>
+              <MDBCardText className="fw-bold">Stock: {item.Stock}</MDBCardText>
               <MDBCardText>{item.description}</MDBCardText>
-              <ItemCount item={item.id} onAdd={onAdd} />
+              <ItemCount stock={item.Stock} onAdd={onAdd} />
             </MDBCardBody>
           </MDBCol>
         </MDBRow>
