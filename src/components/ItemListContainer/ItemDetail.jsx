@@ -41,9 +41,9 @@ const ItemDetail = ({ item }) => {
           <MDBCol>
             <MDBCardBody>
               <MDBCardTitle className="mb-3">{item.title}</MDBCardTitle>
+              <MDBCardText className="text-secondary">Stock: {item.Stock}</MDBCardText>
               <hr />
-              <MDBCardText className="fw-bold">${item.price}</MDBCardText>
-              <MDBCardText className="fw-bold">Stock: {item.Stock}</MDBCardText>
+              <MDBCardText className="fw-bold">Price: ${item.price}</MDBCardText>
               <MDBCardText>{item.description}</MDBCardText>
               <ItemCount stock={item.Stock} onAdd={onAdd} />
             </MDBCardBody>

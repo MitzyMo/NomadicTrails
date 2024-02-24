@@ -28,7 +28,7 @@ const Navbar = ({ totalQuantity }) => {
             <MDBNavbarLink alt="Store"  aria-current="page" href="/Store" >Store</MDBNavbarLink>
             <MDBNavbarLink alt="Contact"  aria-current="page" href="/Contact" >Contact me</MDBNavbarLink>
             <MDBNavbarLink>
-           < CartWidget totalQuantity={totalQuantity} ></CartWidget>
+            < CartWidget totalQuantity={totalQuantity} ></CartWidget>
             </MDBNavbarLink>
           </MDBNavbarNav>
         </MDBCollapse>

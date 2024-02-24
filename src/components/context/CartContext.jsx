@@ -13,6 +13,7 @@ const CartContextProvider = ({ children }) => {
     } else {
       setCart([...cart, { ...item, counter: counter }]);
     }
+    console.log(counter)
   };
 
   const removeItem = (id) => {

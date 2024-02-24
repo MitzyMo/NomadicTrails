@@ -1,26 +1,33 @@
 import React, { useState, useContext, useEffect } from "react";
 import { MDBBtn, MDBBtnGroup } from "mdb-react-ui-kit";
 import { LiaCartPlusSolid, LiaTrashAltSolid } from "react-icons/lia";
-import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
 const ItemCount = ({ stock, onAdd }) => {
   const [counter, setCounter] = useState(1);
   const [itemStock, setItemStock] = useState(stock);
-  const [itemAdded, setItemAdded] = useState(false);
   const [showCartElements, setShowCartElements] = useState(false);
+
   useEffect(() => {
     setItemStock(stock);
   }, [stock]);
+
   const handleAddToCart = () => {
     setShowCartElements(!showCartElements);
-    console.log("Intentando Imprimir Stock:" +itemStock);
+    console.log("Intentando Imprimir Stock:" + itemStock);
   };
 
   const handleIncrease = () => {
     if (counter < itemStock) {
       setCounter(counter + 1);
     }
+    console.log(
+      "Agregaste " +
+        counter +
+        " productos al carrito. Quedan " +
+        (itemStock - counter) +
+        " productos disponibles."
+    );
     //setCounter((prevcounter) => prevcounter + 1);
   };
 
@@ -30,20 +37,32 @@ const ItemCount = ({ stock, onAdd }) => {
     } else {
       setShowCartElements(false);
     }
+    console.log(
+      "Agregaste " +
+        counter +
+        " productos al carrito. Quedan " +
+        (itemStock - counter) +
+        " productos disponibles."
+    );
   };
 
-  const addToCart = () => {
+  const addToCart = (counter) => {
     if (counter <= itemStock) {
       setItemStock(itemStock - counter);
       setCounter(1);
       onAdd(counter);
-      setItemAdded(true);
-      //console.log("Agregaste " + counter + " productos al carrito. Quedan " + (itemStock - counter) + " productos disponibles.");
+      console.log(
+        "Agregaste " +
+          counter +
+          " productos al carrito. Quedan " +
+          (itemStock - counter) +
+          " productos disponibles. - -"
+      );
     }
   };
   const handleAddToCartClick = () => {
     handleAddToCart();
-    addToCart();
+    addToCart(counter); // Passing the current counter value
   };
 
   const renderActionButton = () => {
@@ -83,13 +102,9 @@ const ItemCount = ({ stock, onAdd }) => {
             </MDBBtn>
             {renderActionButton()}
           </MDBBtnGroup>
-          {itemAdded ? (
-            <Link to={"/cart"} className="btn btn-outline-info">
-              Go to Cart
-            </Link>
-          ) : (
-            ""
-          )}
+          <Link to={"/cart"} className="btn btn-outline-info">
+            Go to Cart
+          </Link>
         </div>
       )}
     </>
