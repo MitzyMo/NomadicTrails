@@ -1,56 +1,78 @@
 import React, { useEffect, useState } from "react";
-import arrayproducts from "../json/products.json";
 import { Link, useParams } from "react-router-dom";
 import Breadcrumb from "./Breadcrumb";
 import ProductCard from "./ProductCard";
 import {
-  MDBDropdown,
-  MDBDropdownMenu,
-  MDBDropdownToggle,
-  MDBDropdownItem,
-} from "mdb-react-ui-kit";
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
+import Loading from "./Loading";
 
-const ItemListContainer = ({ onQuantityChange }) => {
+const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
-  const [id, setId] = useState("");
   const { category } = useParams();
-  const [activeCategory, setActiveCategory] = useState(""); // Track active category change className to active
-
-  // Extract unique categories from the products
-  const categories = Array.from(
-    new Set(arrayproducts.map((item) => item.category.name))
-  );
+  const [activeCategory, setActiveCategory] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState([]); // State to store categories
 
   useEffect(() => {
-    setId(category); // Update the selected category when the category parameter changes
-    setActiveCategory(category); // Set active category when the component mounts
-    const promesa = new Promise((resolve, reject) => {
-      let allProducts = category
-        ? arrayproducts.filter((item) => item.category.name === category)
-        : arrayproducts;
+    const fetchCategories = async () => {
+      try {
+        const db = getFirestore();
+        const itemsCollection = collection(db, "items");
+        const querySnapshot = await getDocs(itemsCollection);
+        const categoriesSet = new Set();
+        querySnapshot.forEach((doc) => {
+          const category = doc.data().category;
+          if (category) {
+            categoriesSet.add(category.name);
+          }
+        });
+        const categoriesArray = Array.from(categoriesSet);
+        setCategories(categoriesArray); // Set the categories state
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
 
-      allProducts.length > 0
-        ? resolve(allProducts)
-        : reject("No se encontraron productos!");
-    });
-    promesa
-      .then((data) => {
-        setProducts(data);
-      })
-      .catch((error) => {
-        setErrorMsg(error);
-      });
+    fetchCategories();
+  }, []); // Run once when component mounts
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const db = getFirestore();
+        const itemsCollection = collection(db, "items");
+        const consulta = category
+          ? query(itemsCollection, where("category", "==", category))
+          : itemsCollection;
+        const querySnapshot = await getDocs(consulta);
+        const productsData = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setProducts(productsData);
+        setLoading(false);
+      } catch (error) {
+        setErrorMsg("Error fetching products: " + error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
   }, [category]);
 
-  const handleFilterChange = (selectedCategory) => {
-    setId(selectedCategory); // Set the selected category as the id state
-    setActiveCategory(selectedCategory); // Update active category on filter change
-    const filteredProducts = arrayproducts.filter(
-      (item) => item.category.name === selectedCategory
-    );
-    setProducts(filteredProducts);
-  };
+  useEffect(() => {
+    setActiveCategory(category);
+  }, [category]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -68,59 +90,57 @@ const ItemListContainer = ({ onQuantityChange }) => {
               >
                 <Link to={"/Store"}>All Products</Link>
               </li>
-              {categories.map((cat) => (
-                <li
-                  key={cat}
-                  className={`list-group-item ${
-                    activeCategory === cat ? "active" : ""
-                  }`}
-                >
-                  <Link
-                    to={`/Store/${cat}`}
-                    onClick={() => handleFilterChange(cat)}
-                  >
-                    {cat}
-                  </Link>
-                </li>
-              ))}
+              <li
+                className={`list-group-item ${
+                  activeCategory === "" ? "active" : ""
+                }`}
+                aria-current="true"
+              >
+                {" "}
+                <Link to={`/Store/Men's`}>Men's</Link>
+              </li>
+              <li
+                className={`list-group-item ${
+                  activeCategory === "" ? "active" : ""
+                }`}
+                aria-current="true"
+              >
+                {" "}
+                <Link to={`/Store/Women's`}>Women's</Link>
+              </li>
+              <li
+                className={`list-group-item ${
+                  activeCategory === "" ? "active" : ""
+                }`}
+                aria-current="true"
+              >
+                {" "}
+                <Link to={`/Store/Electronics`}>Electronics</Link>
+              </li>
+              <li
+                className={`list-group-item ${
+                  activeCategory === "" ? "active" : ""
+                }`}
+                aria-current="true"
+              >
+                {" "}
+                <Link to={`/Store/Miscellaneous`}>Miscellaneous</Link>
+              </li>
             </ul>
           </div>
           <div className="col-10">
             <div className="row">
               <div className="col">
-                {/* Pass the selected category (id) to the Breadcrumb component */}
-                <Breadcrumb pageId={id} />
-              </div>
-            </div>
-            <div className="row mb-3">
-              <div className="col">
-                <MDBDropdown>
-                  <MDBDropdownToggle variant="info" id="dropdown-basic">
-                    Filter by Category
-                  </MDBDropdownToggle>
-                  <MDBDropdownMenu>
-                    {categories.map((cat) => (
-                      <MDBDropdownItem
-                        className={`m-2 text-center pe-auto ${
-                          activeCategory === cat ? "active" : ""
-                        }`}
-                        style={{ cursor: "pointer" }}
-                        key={cat}
-                        eventkey={cat}
-                        href={`/Store/${cat}`}
-                        onClick={() => handleFilterChange(cat)}
-                        link
-                      >
-                        {cat}
-                      </MDBDropdownItem>
-                    ))}
-                  </MDBDropdownMenu>
-                </MDBDropdown>
+                <Breadcrumb pageId={category} />
               </div>
             </div>
             <div className="row">
               {products.map((item) => (
-                <ProductCard key={item.id} item={item} onClick={() => {}} onQuantityChange={onQuantityChange}/>
+                <ProductCard
+                  key={item.id}
+                  item={item}
+                  onClick={() => {}}
+                />
               ))}
             </div>
             <div className="row">

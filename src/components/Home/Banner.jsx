@@ -4,7 +4,9 @@ import zen from "../../assets/media/Zen.webp"
 import wave from "../../assets/media/wave.svg"
 
 
+
 const Banner = ({ className }) => {
+  
     return (
         <>
       <section className={`banner ${className}`} id="home">

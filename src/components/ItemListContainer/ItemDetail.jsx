@@ -1,96 +1,61 @@
-import React, { useState } from "react";
-import {MDBCard,MDBCardBody,MDBCardText,MDBCardTitle,MDBCardImage,MDBBtn,MDBRipple,MDBContainer, MDBBtnGroup,} from "mdb-react-ui-kit";
-import {LiaCartPlusSolid,LiaTrashAltSolid,} from "react-icons/lia";
+import React from "react";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import { MDBCard, MDBCardBody, MDBCardText, MDBCardTitle, MDBCardImage, MDBRipple, MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
+import Loading from "./Loading";
+import ItemCount from "./ItemCount";
+import Breadcrumb from "./Breadcrumb";
+import { Link } from "react-router-dom";
 
-const ItemDetail = ({ item,onQuantityChange }) => {
 
+const ItemDetail = ({ item }) => {
+  const {addItem} = useContext(CartContext);
   
   if (!item) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
-  const [quantity, setQuantity] = useState(0);
-  const [showCartElements, setShowCartElements] = useState(false);
-
-  const handleAddToCart = () => {
-    setQuantity(0);
-    setShowCartElements((prevShowCartElements) => !prevShowCartElements);
-    onQuantityChange(quantity);
-  };
-
-  const handleIncrease = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
-  };
-
-  const handleDecrease = () => {
-    if (quantity > 1) {
-      setQuantity((prevQuantity) => prevQuantity - 1);
-      onQuantityChange(quantity - 1);
-    } else {
-      setShowCartElements(false);
-    }
-  };
-
-  const renderActionButton = () => {
-    if (quantity > 1) {
-      return (
-        <MDBBtn outline color="danger" onClick={handleDecrease}>
-          -
-        </MDBBtn>
-      );
-    } else {
-      return (
-        <MDBBtn outline color="danger" onClick={handleAddToCart}>
-          <LiaTrashAltSolid />
-        </MDBBtn>
-      );
-    }
-  };
+  const onAdd = (quantity) => {
+    addItem(item, quantity);
+}
   return (
     <MDBContainer fluid className="w-50" alignment="center">
       <MDBCard>
-        <MDBRipple
-          rippleColor="light"
-          rippleTag="div"
-          className="bg-image hover-overlay"
-        >
-          {item.images.length > 0 && (
-            <MDBCardImage
-              src={item.images[0]}
-              className="card-img-top"
-              alt={item.title}
-            />
-          )}
-          <a>
-            <div
-              className="mask"
-              style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-            ></div>
-          </a>
-        </MDBRipple>
-        <MDBCardBody>
-          <MDBCardTitle>{item.title}</MDBCardTitle>
-          <MDBCardText>${item.price}</MDBCardText>
-          <MDBCardText>{item.description}</MDBCardText>
-          {!showCartElements ? (
-              <MDBBtn
-              to=""
-              className="btn btn-primary"
-              onClick={handleAddToCart}
+      <MDBRow>
+          <MDBCol>
+          <Breadcrumb pageId={item.category} productName={item.title} />
+          </MDBCol>
+        </MDBRow>
+        <MDBRow>
+          <MDBCol>
+            <MDBRipple
+              rippleColor="light"
+              rippleTag="div"
+              className="bg-image hover-overlay"
             >
-              ADD TO CART <LiaCartPlusSolid size={24} />
-            </MDBBtn>
-          ) : (
-            <MDBBtnGroup>
-              <MDBBtn outline color="success" onClick={handleIncrease}>
-                +
-              </MDBBtn>
-              <MDBBtn outline color="secondary" onClick={handleIncrease}>
-                {quantity}
-              </MDBBtn>
-              {renderActionButton()}
-            </MDBBtnGroup>
-          )}
-        </MDBCardBody>
+              <MDBCardImage
+                src={item.image}
+                className="card-img-top"
+                alt={item.title}
+              />
+              <a>
+                <div
+                  className="mask"
+                  style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
+                ></div>
+              </a>
+            </MDBRipple>
+          </MDBCol>
+          <MDBCol>
+            <MDBCardBody>
+              <MDBCardTitle className="mb-3">{item.title}</MDBCardTitle>
+              <MDBCardText className="text-secondary">Stock: {item.Stock}</MDBCardText>
+              <hr />
+              <MDBCardText className="fw-bold">Price: ${item.price}</MDBCardText>
+              <MDBCardText>{item.description}</MDBCardText>
+              <ItemCount stock={item.Stock} onAdd={onAdd} />
+            </MDBCardBody>
+          </MDBCol>
+        </MDBRow>
       </MDBCard>
     </MDBContainer>
   );

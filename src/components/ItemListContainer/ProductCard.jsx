@@ -8,7 +8,7 @@ const ProductCard = ({ item }) => {
     <div className="col-md-3">
       <div className="card border-0 text-center">
         <img
-          src={item.images}
+          src={item.image}
           className="card-img-top"
           alt={item.title}
           style={{ objectFit: "contain" }}
@@ -17,7 +17,7 @@ const ProductCard = ({ item }) => {
           <h5 className="card-title">{item.title}</h5>
           <p className="card-text">${item.price}</p>
               <MDBBtn outline color="primary">
-                <Link to={`/Store/${item.category.name}/${item.id}`}>
+                <Link to={`/Store/${item.category}/${item.id}`}>
                   View Details
                 </Link>
               </MDBBtn>
