@@ -4,6 +4,8 @@ import { CartContext } from "../context/CartContext";
 import { MDBCard, MDBCardBody, MDBCardText, MDBCardTitle, MDBCardImage, MDBRipple, MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import Loading from "./Loading";
 import ItemCount from "./ItemCount";
+import Breadcrumb from "./Breadcrumb";
+import { Link } from "react-router-dom";
 
 
 const ItemDetail = ({ item }) => {
@@ -18,6 +20,11 @@ const ItemDetail = ({ item }) => {
   return (
     <MDBContainer fluid className="w-50" alignment="center">
       <MDBCard>
+      <MDBRow>
+          <MDBCol>
+          <Breadcrumb pageId={item.category} productName={item.title} />
+          </MDBCol>
+        </MDBRow>
         <MDBRow>
           <MDBCol>
             <MDBRipple

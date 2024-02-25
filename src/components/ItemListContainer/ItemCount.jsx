@@ -37,14 +37,14 @@ const ItemCount = ({ stock, onAdd }) => {
     <>
       <div className="gap-5">
         <MDBBtnGroup className="mr-5">
-          <MDBBtn outline color="success" onClick={incrementar}>
-            +
+        <MDBBtn outline color="danger" onClick={decrementar}>
+            -
           </MDBBtn>
           <MDBBtn outline color="secondary">
             {counter}
           </MDBBtn>
-          <MDBBtn outline color="danger" onClick={decrementar}>
-            -
+          <MDBBtn outline color="success" onClick={incrementar}>
+            +
           </MDBBtn>
         </MDBBtnGroup>
         {itemAdded ? (
@@ -54,7 +54,7 @@ const ItemCount = ({ stock, onAdd }) => {
         ) : (
           <MDBBtn
             type="button"
-            className="ml-5 btn btn-outline-info"
+            className="ml-5 btn btn-outline-warning"
             onClick={addToCart}
           >
             Add to Cart

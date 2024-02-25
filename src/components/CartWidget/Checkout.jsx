@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { MDBContainer } from "mdb-react-ui-kit";
 
 const Checkout = () => {
     const [nombre, setNombre] = useState();
@@ -39,17 +40,18 @@ const Checkout = () => {
     }
 
     return (
-        <div className="container">
+<MDBContainer className="mt-5">
+<div className="container">
             <div className="row">
                 <div className="col text-center">
-                    <h1>Checkout</h1>
+                    <h1 className="my-5 blue-deep">Checkout</h1>
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-6">
                     <form>
                         <div className="mb-3">
-                            <label className="form-label">Nombre</label>
+                            <label className="form-label">Name</label>
                             <input type="text" className="form-control" onInput={(e) => {setNombre(e.target.value)}} />
                         </div>
                         <div className="mb-3">
@@ -57,10 +59,10 @@ const Checkout = () => {
                             <input type="text" className="form-control" onInput={(e) => {setEmail(e.target.value)}} />
                         </div>
                         <div className="mb-3">
-                            <label className="form-label">Teléfono</label>
+                            <label className="form-label">Phone Number</label>
                             <input type="text" className="form-control" onInput={(e) => {setTelefono(e.target.value)}} />
                         </div>
-                        <button type="button" className="btn btn-warning" onClick={generarOrden}>Generar Orden</button>
+                        <button type="button" className="btn btn-outline-success mt-3" onClick={generarOrden}>Generar Orden</button>
                     </form>
                 </div>
                 <div className="col-md-6 text-center">
@@ -93,6 +95,7 @@ const Checkout = () => {
                 </div>
             </div>
         </div>
+</MDBContainer>
     )
 }
 

@@ -21,20 +21,20 @@ function App() {
   return (
     <>
         <CartContextProvider>
-        <BrowserRouter basename="/">
+        <BrowserRouter>
         <Header />
         <Routes>
           <Route path={"/"} element={<Home />} />
-          <Route path={"/About"} element={<About />} />
-          <Route path={"/Travel"} element={<Travel />} />
-          <Route path={"/Gallery"} element={<Gallery />} />
           <Route path={"/Store"} element={<Store/>}/>
           <Route path="/Store/:category/" element={<Store />} />
           <Route path="/Store/:category/:itemId" element={<ItemDetailContainer />} />
-          <Route path={"/Contact"} element={<Contact />} />
           <Route path={"/cart"} element={<Cart />} />
           <Route path={"/checkout"} element={<Checkout />} />
           <Route path={"*"} element={<ErrorHandler />} />
+          <Route path={"/About"} element={<About />} />
+          <Route path={"/Travel"} element={<Travel />} />
+          <Route path={"/Gallery"} element={<Gallery />} />
+          <Route path={"/Contact"} element={<Contact />} />
         </Routes>
         <Footer />
       </BrowserRouter>
