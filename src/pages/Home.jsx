@@ -2,21 +2,17 @@ import React from "react";
 import BrandName from "../components/Brand/BrandName";
 import { Link } from "react-router-dom";
 import "../assets/styles/styles.css";
-import trollPrague from "../assets/media/PragueC.webp";
-import venice from "../assets/media/Venice.webp";
-import Florence from "../assets/media/Florence.webp";
-import { MDBCarousel, MDBCarouselItem  } from "mdb-react-ui-kit";
-import Bird from "../assets/media/Bird.webp";
-import Deck from "../assets/media/Deck.webp";
-import Contact from "../assets/media/Contact.webp";
-import Monserrat from "../assets/media/Monserrat.webp";
+import { MDBCarousel, MDBCarouselItem } from "mdb-react-ui-kit";
 import Logo from "../components/Brand/Logo";
 
 const Home = () => {
   return (
     <>
       <BrandName />
-      <section className="about section-padding prelative about-section1" id="about">
+      <section
+        className="about section-padding prelative about-section1"
+        id="about"
+      >
         <div>
           <div className="sectioner-header text-center">
             <h2>
@@ -27,7 +23,7 @@ const Home = () => {
             <span className="line"></span>
           </div>
           <div className="about-content">
-            <Logo size={300}/>
+            <Logo size={300} />
             <h1>Hi, I'm Mo the Traveler.</h1>
             <h2>
               <Link alt="About-me" to={"/About"}>
@@ -59,7 +55,13 @@ const Home = () => {
                   className="card bg-transparent h-100"
                   style={{ width: "360px" }}
                 >
-                  <img className="w-100" src={trollPrague} />
+                  <video className="w-100" autoPlay loop muted>
+                    <source
+                      src="https://firebasestorage.googleapis.com/v0/b/ecommerce-blog-2768b.appspot.com/o/Prague.MP4?alt=media&token=8b86aae3-70fe-408f-80f6-4f6b04e77ba3"
+                      type="video/mp4"
+                      allowFullScreen
+                    />
+                  </video>
                   <div className="card-body ">
                     <Link
                       id="sec2-travel-title-tip1"
@@ -86,7 +88,13 @@ const Home = () => {
                   className="card bg-transparent h-100"
                   style={{ width: "360px" }}
                 >
-                  <img src={venice} alt="Venice" />
+                  <video className="w-100" autoPlay loop muted>
+                    <source
+                      src="https://firebasestorage.googleapis.com/v0/b/ecommerce-blog-2768b.appspot.com/o/Venecia.MP4?alt=media&token=e289d89f-df88-4fd5-b686-17b080fdaa7f"
+                      type="video/mp4"
+                      allowFullScreen
+                    />
+                  </video>
                   <div className="card-body">
                     <Link
                       id="sec2-travel-title-tip2"
@@ -113,7 +121,13 @@ const Home = () => {
                   className="card bg-transparent h-100"
                   style={{ width: "360px" }}
                 >
-                  <img src={Florence} alt="Florence" />
+                  <video className="w-100" autoPlay loop muted>
+                    <source
+                      src="https://firebasestorage.googleapis.com/v0/b/ecommerce-blog-2768b.appspot.com/o/Italy2.MP4?alt=media&token=3e1deb3a-af86-4ec8-8fc1-c344971af357"
+                      type="video/mp4"
+                      allowFullScreen
+                    />
+                  </video>
                   <div className="card-body">
                     <Link
                       id="sec2-travel-title-tip3"
@@ -152,36 +166,20 @@ const Home = () => {
 
         <MDBCarousel showControls interval={3000}>
           <MDBCarouselItem itemId={1} interval={1000}>
-            <img
-              src={Bird}
-              className="d-block w-75 mx-auto"
-              alt="Bird"
-            />
+            <img src="https://firebasestorage.googleapis.com/v0/b/ecommerce-blog-2768b.appspot.com/o/Bird.webp?alt=media&token=42811168-1718-4a16-b22a-8fadd920457d" className="d-block w-75 mx-auto" alt="Bird" />
           </MDBCarouselItem>
           <MDBCarouselItem itemId={2}>
-            <img
-              src={Deck}
-              className="d-block w-75 mx-auto"
-              alt="..."
-            />
+            <img src="https://firebasestorage.googleapis.com/v0/b/ecommerce-blog-2768b.appspot.com/o/Deck.webp?alt=media&token=b6ebd0a6-0d70-4750-bbbb-d1bfd1bb2653" className="d-block w-75 mx-auto" alt="..." />
           </MDBCarouselItem>
           <MDBCarouselItem itemId={3}>
-            <img
-              src={Contact}
-              className="d-block w-75 mx-auto"
-              alt="..."
-            />
+            <img src="https://firebasestorage.googleapis.com/v0/b/ecommerce-blog-2768b.appspot.com/o/Contact.webp?alt=media&token=09876061-2241-4f14-8d54-a733ccc9a7bc" className="d-block w-75 mx-auto" alt="..." />
           </MDBCarouselItem>
           <MDBCarouselItem itemId={4}>
-            <img
-              src={Monserrat}
-              className="d-block w-75 mx-auto"
-              alt="..."
-            />
+            <img src="https://firebasestorage.googleapis.com/v0/b/ecommerce-blog-2768b.appspot.com/o/Monserrat.webp?alt=media&token=c782fd99-4d0d-4cb9-9848-10e7110d96d1" className="d-block w-75 mx-auto" alt="..." />
           </MDBCarouselItem>
         </MDBCarousel>
       </section>
-       {/* CONTACT*/}
+      {/* CONTACT*/}
       <section className="contact section-padding">
         <div className="container">
           <div className="row">
