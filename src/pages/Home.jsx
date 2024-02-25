@@ -1,16 +1,16 @@
 import React from "react";
-import BrandName from "../Brand/BrandName";
+import BrandName from "../components/Brand/BrandName";
 import { Link } from "react-router-dom";
-import "../../assets/styles/styles.css";
-import trollPrague from "../../assets/media/PragueC.webp";
-import venice from "../../assets/media/Venice.webp";
-import Florence from "../../assets/media/Florence.webp";
+import "../assets/styles/styles.css";
+import trollPrague from "../assets/media/PragueC.webp";
+import venice from "../assets/media/Venice.webp";
+import Florence from "../assets/media/Florence.webp";
 import { MDBCarousel, MDBCarouselItem  } from "mdb-react-ui-kit";
-import Bird from "../../assets/media/Bird.webp";
-import Deck from "../../assets/media/Deck.webp";
-import Contact from "../../assets/media/Contact.webp";
-import Monserrat from "../../assets/media/Monserrat.webp";
-import Logo from "../Brand/Logo";
+import Bird from "../assets/media/Bird.webp";
+import Deck from "../assets/media/Deck.webp";
+import Contact from "../assets/media/Contact.webp";
+import Monserrat from "../assets/media/Monserrat.webp";
+import Logo from "../components/Brand/Logo";
 
 const Home = () => {
   return (

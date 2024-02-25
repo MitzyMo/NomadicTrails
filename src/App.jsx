@@ -4,12 +4,12 @@ import Footer from "./components/Header/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "./assets/styles/styles.css";
-import Home from "./components/Home/Home";
-import About from "./components/About/About";
-import Travel from "./components/Travel/Travel";
-import Gallery from "./components/Gallery/Gallery";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Travel from "./pages/Travel";
+import Gallery from "./pages/Gallery";
 import Store from "./components/ItemListContainer/ItemListContainer";
-import Contact from "./components/Contact/Contact";
+import Contact from "./pages/Contact";
 import ErrorHandler from "./components/ItemListContainer/ErrorHandler";
 import ItemDetailContainer from "./components/ItemListContainer/ItemDetailContainer";
 import CartContextProvider from "./components/context/CartContext"

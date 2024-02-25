@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import image1 from "../../assets/media/PragueNight.webp";
-import image2 from "../../assets/media/PragueTrol.webp";
-import image3 from "../../assets/media/user.png";
-import image4 from "../../assets/media/PragueBoat.webp";
+import image1 from "../assets/media/PragueNight.webp";
+import image2 from "../assets/media/PragueTrol.webp";
+import image3 from "../assets/media/user.png";
+import image4 from "../assets/media/PragueBoat.webp";
+
 
 const Travel = () => {
     return (
