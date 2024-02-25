@@ -18,9 +18,9 @@ const Contact = () => {
                 </div>
                 <div className="section-content">
                     <div className="row">
-                    <div className="col-sm-12 col-md-12 col-lg-8">
+                    <div className="col-sm-12 col-md-12 col-lg-8 ">
                         <form id="contact_form" action="">
-                        <div className="row">
+                        <div className="row ">
                             <div className="col">
                             <input
                                 type="text"
@@ -35,7 +35,7 @@ const Contact = () => {
                             <input
                                 type="email"
                                 id="email"
-                                className="form-input w-100"
+                                className="form-input w-100 "
                                 name="email"
                                 placeholder="Email"
                                 required
